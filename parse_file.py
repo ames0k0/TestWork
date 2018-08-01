@@ -48,6 +48,7 @@ list_of_words = [
 
 
 @DICT output@
+# len(dict_of_words) -> ??
 dict_of_words = {
     'A': [
         'A', 'AA', 'AAA'
@@ -91,20 +92,22 @@ def generate_random_words(flag, in_place=False, wlen=50):
 
 def convert_to_list(_file, name="list_of_words", in_place=False, _sort=True, beautify=100):
     if exists(_file):
+        # i don't know what it calls, i'll call it @baeos: begin and end of string
+        baeos = ["'''", '"""']
         source = ""
         with open(_file, 'r') as _f:
             in_file = _f.readlines()
 
-        # remove python script
         flag = False
         for get_line in in_file:
             if in_place:
+                # remove python script
                 get_flag = get_line.strip()
                 if not flag:
-                    if get_flag == "'''":
+                    if get_flag in baeos:
                         flag = True
                 else:
-                    if get_flag != "'''":
+                    if get_flag not in baeos:
                         source += get_line
             else:
                 source += get_line
@@ -136,7 +139,9 @@ def convert_to_list(_file, name="list_of_words", in_place=False, _sort=True, bea
 
         # [['w1', 'w2', 'w3'], ['w4', 'w5', 'w6'], ... ]
         words = deque(words)
-        lines = [["'{}'".format(words.popleft()) for _ in range(line)] for _ in range(int(wlen/line))]
+        lines = [
+            ["'{}'".format(words.popleft()) for _ in range(line)] for _ in range(int(wlen/line))
+        ]
 
         # create list with name
         tab = "\n    "
@@ -159,15 +164,15 @@ def convert_to_list(_file, name="list_of_words", in_place=False, _sort=True, bea
 
         print("\n[+] Parsed, open file: {}\n".format(_file))
     else:
+        # generate file of words
+        # False: .txt file, True: .py file
         generate_random_words('list', False)
         print("\n[!] {0}: not exists! Generated file: {0}, try again\n".format(_file))
 
 
-# convert_to_list('word_list.txt', 'girl_names', False, True)
-
-
 def convert_to_dict(_file, name="list_of_words", in_place=False, _sort=True, beautify=95):
     if exists(_file):
+        baeos = ["'''", '"""']
         source = ""
         with open(_file, 'r') as _f:
             in_file = _f.readlines()
@@ -177,10 +182,10 @@ def convert_to_dict(_file, name="list_of_words", in_place=False, _sort=True, bea
             if in_place:
                 get_flag = get_line.strip()
                 if not flag:
-                    if get_flag == "'''":
+                    if get_flag in baeos:
                         flag = True
                 else:
-                    if get_flag != "'''":
+                    if get_flag not in baeos:
                         source += get_line
             else:
                 source += get_line
@@ -240,8 +245,12 @@ def convert_to_dict(_file, name="list_of_words", in_place=False, _sort=True, bea
 
         print("\n[+] Parsed, open file: {}\n".format(_file))
     else:
-        generate_random_words('dict', True)
+        generate_random_words('dict', False)
         print("\n[!] {0}: not exists! Generated file: {0}, try again\n".format(_file))
 
 
-# convert_to_dict('word_list.py', 'girl_names', False, True)
+if __name__ == "__main__":
+    # generated file (you) importing funcs, and nah need to execute it
+
+    # convert_to_dict('word_list.txt', 'girl_names', False, True)
+    # convert_to_list('word_list.txt', 'girl_names', False, True)
