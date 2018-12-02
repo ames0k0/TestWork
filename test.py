@@ -3,21 +3,14 @@
 
 # __author__ = 'kira@-築城院 真鍳'
 
-from itertools import combinations
-from functools import reduce
-from re import findall
+from re import findall #-----------#
+from itertools import combinations #
+from functools import reduce #-----#
 
 
-def ne(A):
-    nem = []
-    cbs = combinations(A, 3)
-    for i in cbs:
-        cm = reduce(lambda x, y: x*y, i)
-        nem.append(f"{cm}")
-    mx = "".join(nem)
-    mg = findall(r'0+', mx)
-    return len(max(mg))
-
+def find_max_zeros(A):
+    nem = [f"{reduce(lambda x, y: x*y, comb)}" for comb in combinations(A, 3)]
+    return len(max(findall(r'0+', "".join(nem))))
 
 A = [7, 15, 6, 20, 5, 10]
-print(ne(A))
+print(_ne(A))

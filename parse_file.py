@@ -117,7 +117,7 @@ def convert_to_list(_file, name="list_of_words", in_place=False, _sort=True, bea
         word = re.compile(r'\w+')
         words = word.findall(source)
         wlen = len(words)
-        
+
         # make limit words in line
         # len('word') \ (100 symbols|beautify)
         get_minimum = str(Counter([len(w) for w in words]).most_common(3))
@@ -127,10 +127,7 @@ def convert_to_list(_file, name="list_of_words", in_place=False, _sort=True, bea
 
         # ignore words with len 1
         start, _, end = [int(lens) for lens in lens_of_most_common]
-        if (end - start) > start:
-            leno = end
-        else:
-            leno = start
+        leno = end if (end - start) > start else start
 
         # len(", ") == 2
         line = int(beautify / (leno * 2))
@@ -194,7 +191,7 @@ def convert_to_dict(_file, name="list_of_words", in_place=False, _sort=True, bea
         word = re.compile(r'\w+')
         words = word.findall(source)
         wlen = len(words)
-        
+
         get_minimum = str(Counter([len(w) for w in words]).most_common(3))
         lens_of_most_common = "".join(re.findall(r'\(\d', get_minimum))[1::2]
 
@@ -250,6 +247,7 @@ def convert_to_dict(_file, name="list_of_words", in_place=False, _sort=True, bea
 
 
 if __name__ == "__main__":
+    pass
     # generated file (you) importing funcs, and nah need to execute it
 
     # convert_to_dict('word_list.txt', 'girl_names', False, True)

@@ -14,7 +14,7 @@ class RegisterNumber:
     rn.register('SECRET_KEY', 'tr65bi34mi2th18')    # REGISTER NUMBER TO KEY: SECRET_KEY
     rn.use('SECRET_KEY')                            # USE THIS KEY
     """
-    __slots__ = ['parse', 'register', 'use']
+    __slots__ = ('nums', 'cache')
 
     def __init__(self):
         self.nums = {
@@ -69,7 +69,6 @@ class RegisterNumber:
     def register(self, key, value):
         """
         SRC:: http://mathforum.org/t2t/discuss/message.taco?thread=679&n=8
-        SHOULD I USE DESCRIPTOR ?!?
         """
         self.cache[key] = self.parse(value)
 

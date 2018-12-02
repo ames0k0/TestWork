@@ -7,27 +7,27 @@ from bs4 import BeautifulSoup as bs #----#
 from requests import get #---------------#
 from collections import Counter #--------#
 from nltk.tokenize import TweetTokenizer #
-token = TweetTokenizer()
 
 
-def get_text(url):
-    mktext = ""
-    soup = bs(get(url).text, 'lxml')
-    lyrics = soup.find('div', 'lyrics')
-    for i in lyrics.find_all('a'):
-        mktext += f"{i.text}\n"
-    return mktext
-
-
-def tree_most_popular(text):
+def tree_most_popular(url: str):
     """
-    [('villains': 2), ('diamonds', 1), ('monsters', 1)]
+    :param: url -> website with text data
+
+    :output:
+        [('villains': 2), ('diamonds', 1), ('monsters', 1)]
     """
-    texts = [gseven for gseven in token.tokenize(text) if len(gseven) > 7]
-    cnt = Counter(texts).most_common(3)
-    print(cnt)
+
+    text = ""
+    for each in bs(get(url).text, 'lxml').find('div', 'lyrics').find_all('a'):
+        text += f"{each.text}\n"
+
+    token = TweetTokenizer()
+    print(
+        Counter(
+            [gseven for gseven in token.tokenize(text) if len(gseven) > 7]
+        ).most_common(3)
+    )
 
 
 if __name__ == "__main__":
-    text = get_text("https://genius.com/Halsey-control-lyrics")
-    tree_most_popular(text)
+    tree_most_popular("https://genius.com/Halsey-control-lyrics")

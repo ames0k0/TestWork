@@ -4,70 +4,70 @@
 # __author__ = 'kira@-築城院 真鍳'
 
 """
-what i did ?:
-    Spocoyno -> Besplatno
-    Activno -> Platno
-
-
 TODO:
     Активно, платно -> Активно, бесплатно
     Спокойно, бесплатно -> Спокойно, платно
     Активно, бесплатно -> Спокойно, бесплатно
     Спокойно, бесплатно -> Конец
+
+and What i did ?:
+    Spocoyno -> Besplatno
+    Activno -> Platno
 """
 
 
+start_message = "Добрый день! Я робот, \
+который поможет вам найти развлечение для выходных!\
+\n    Хотите провести время Активно или Спокойно?"
+
 rule = {
     "start": {
-        "output": "Dobriy den. Ya robot, which helps you to look up razvlechenie for freedays. \n\tDo you want Activeno or Spokoyno ?",
+        "output": start_message,
         "next": {
-           "Activeno": "Money",
-           "Spokoyno": "Money"
+           "Активно": "Money",
+           "Спокойно": "Money"
         }
     },
     "Money": {
-        "output": "Are you ready to potratit dengi ?",
+        "output": "Вы готовы потратить на это деньги?",
         "next": {
-            "Da": "Activeno",
-            "Net": "Spokoyno"
+            "Да": "Activeno",
+            "Нет": "Spokoyno"
         }
     },
     "Spokoyno": {
-        "output": "Vot neskolko Variantov",
+        "output": "Вот несколько вариантов",
         "next": {
-            "сходить на выставку; сходить в антикафе": "Davayte",
-            "Посидеть в парке; посмотреть красивую архитектуру": "Davayte",
-            "Ne hochu": "Net"
+            "сходить на выставку; сходить в антикафе": "Da",
+            "Посидеть в парке; посмотреть красивую архитектуру": "Da",
+            "Не хочу": "Net"
         }
     },
     "Activeno": {
-        "output": "Togda Poehali",
+        "output": "Вот несколько вариантов",
         "next": {
-            "Сыграйте с друзьями во фрисби в парке": "Davayte",
-            "Прыгните с парашютом; сходите на квест": "Davayte",
-            "Ne hochu": "Net"
+            "Сыграйте с друзьями во фрисби в парке": "Da",
+            "Прыгните с парашютом; сходите на квест": "Da",
+            "Не хочу": "Net"
         }
     },
-    "Davayte": {
-        "output": "Rad bil pomoch!",
+    "Da": {
+        "output": "Рад был помочь!",
         "next": {
-            "vernutcya na glavnuyu menyu?": "start"
+            "Вернуть на главную меню": "start"
         }
     },
     "Net": {
-        "output": "nu nu Kotik",
+        "output": "Извините что мало вариантов!",
         "next": {
-            "kill yourself": "Da",
-            "peredumat naschet deneg": "Money"
+            "Передумать насчет денег?": "Money"
         }
     },
 }
 
-
 state = 'start'
 choice = {}
 bot_out = "\n:> {}\n"
-
 
 while True:
 

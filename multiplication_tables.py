@@ -3,6 +3,7 @@
 
 # __author__ = 'kira@-築城院 真鍳'
 
+from argparse import ArgumentParser
 from prettytable import PrettyTable
 
 
@@ -57,10 +58,12 @@ def mul_table(form: int) -> str:
                    ...
     """
     assert form > 0
-    assert form < 40, "It nah looks good on Screen"
+    assert form < 40, "Let prettyTable looks pretty"
+
     head = [j for j in range(1, form+1)]
     x = PrettyTable()
     x._set_field_names(head)
+
     for i in range(1, form+1):
         x.add_row(_loop(head, i, False))
     print(x)
@@ -79,18 +82,38 @@ def negmul_table(form: str) -> str:
     """
     assert isinstance(form, str)
     st, sp = form.split('x')
-    start, stop = int(st), int(sp)
+    start, stop = int(st), int(sp) + 1
     assert start > -30
     assert stop < 30, "It nah looks good on Screen"
-    head = _tlike(start, stop+1)
-    lhead = [j for j in range(start, stop+1)]
+
+    head = _tlike(start, stop)
+    lhead = [j for j in range(start, stop)]
     y = PrettyTable()
     y._set_field_names(["X", *lhead])
+
     for e, i in enumerate(range(start, stop)):
         y.add_row([head[e]] + _loop(lhead, i, True))
     print(y)
 
 
 if __name__ == "__main__":
-    mul_table(10)
-    negmul_table('-5x10')
+    parser = ArgumentParser()
+    parser.add_argument("-mt", help="generate Multiplication Table", type=int)
+    parser.add_argument(
+        "-nmt",
+        help="generate Multiplication Table from Negative", type=str
+    )
+    args = parser.parse_args()
+
+    mt = args.mt
+    nmt = args.nmt
+
+    if mt:
+        mul_table(mt)
+
+    if nmt:
+        negmul_table(nmt)
+
+    if not mt and not nmt:
+        print("multiplication_tables -h")
+
