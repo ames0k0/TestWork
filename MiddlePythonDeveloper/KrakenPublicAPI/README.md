@@ -32,3 +32,6 @@ Development OS
 ```console
 uname -a    # Linux secret 5.15.0-kali2-amd64 #1 SMP Debian 5.15.5-2kali2 (2021-12-22) x86_64 GNU/Linux
 ```
+
+#### Code review notes
+![Code review](src/data/review_result.png)
