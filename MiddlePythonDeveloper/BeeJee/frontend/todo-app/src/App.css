@@ -1,0 +1,9 @@
+input {
+  display: flex;
+}
+.filter p {
+  display: inline-flex;
+}
+.todo-list p {
+  display: inline-flex;
+}
