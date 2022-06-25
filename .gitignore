@@ -1,5 +1,7 @@
 static/*
 
+*_ignore-me.*
+
 # vim
 *.swp
 
