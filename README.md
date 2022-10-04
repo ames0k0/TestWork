@@ -8,6 +8,7 @@ VideoProcessing, ImageProcessing
 
 ## Web Development
 FullStack, FrontEnd, BackEnd, ORM, Database, Serialization
+- [ ] [SkyTrack](./WebDevelopment/SkyTrack)
 - [x] Flask
 - [x] AioHTTP
 - [x] FastAPI
@@ -20,6 +21,10 @@ FullStack, FrontEnd, BackEnd, ORM, Database, Serialization
 
 ## Projects and Scripts
 Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing, Networks, SHELL
+- [ ] [KrakenPublicAPI](./ProjectsAndScripts/KrakenPublicAPI)
+- [ ] [CountDotsInPic](./ProjectsAndScripts/CountDotsInPic)
+- [ ] [WordCounter - Python Implementation](./ProjectsAndScripts/wc.py)
+- [ ] [STT-Engine Result Fix](./ProjectsAndScripts/imot-io.py)
 - [x] re
 - [x] math
 - [x] socket
@@ -37,6 +42,8 @@ Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing,
 
 ## Random Projects
 DataStructures, Algorithms, Subprocess, Datetime, Social Media API
+- [ ] [Website Content With Socket](./RandomProjects/get_website_content_with_socket.py)
+- [ ] [Max String Without Check](./RandomProjects/max_string_by_alpha_without_check.py)
 - [x] random
 - [x] datetime
 - [x] subprocess
