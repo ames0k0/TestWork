@@ -9,6 +9,7 @@ VideoProcessing, ImageProcessing
 ## Web Development
 FullStack, FrontEnd, BackEnd, ORM, Database, Serialization
 - [ ] [SkyTrack](./WebDevelopment/SkyTrack)
+- [ ] [KrakenPublicAPI](./WebDevelopment/KrakenPublicAPI)
 - [x] Flask
 - [x] AioHTTP
 - [x] FastAPI
@@ -21,7 +22,6 @@ FullStack, FrontEnd, BackEnd, ORM, Database, Serialization
 
 ## Projects and Scripts
 Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing, Networks, SHELL
-- [ ] [KrakenPublicAPI](./ProjectsAndScripts/KrakenPublicAPI)
 - [ ] [CountDotsInPic](./ProjectsAndScripts/CountDotsInPic)
 - [ ] [WordCounter - Python Implementation](./ProjectsAndScripts/wc.py)
 - [ ] [STT-Engine Result Fix](./ProjectsAndScripts/imot-io.py)
