@@ -1,0 +1,32 @@
+#
+# NOTE: hardcoded `localhost`
+#
+version: '3.1'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: toor
+    network_mode: host
+
+  web_app:
+    build:
+      dockerfile: ./src/web/Dockerfile
+      context: .
+      network: host
+    depends_on:
+      - mongo
+    network_mode: host
+
+  bot_app:
+    build:
+      dockerfile: ./src/bot/Dockerfile
+      context: .
+      network: host
+    depends_on:
+      - web_app
+    network_mode: host
