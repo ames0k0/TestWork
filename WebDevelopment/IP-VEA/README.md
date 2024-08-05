@@ -9,8 +9,7 @@
   - `DELETE 'api/v1/messages/'` - позволяет удалять всех сообщений
 
 ### Телеграм бот (aiogram3)
-> Все "текст" сообщение будут создаваться
-> Обращается к FastAPI приложение для 
+> Все "текст" сообщение будут создаваться. Обращается к приложение FastAPI 
 >
 > Реализован комманды:
   - `/start` - Приветствие
@@ -25,15 +24,15 @@ docker-compose up
 ```
 
 ## Замечание
-Не стал создавать переменных как `MONGO_DSN=`, `WEB_APP_ENDPOINT=`
-Приложение развертывается на `localhost` (network_mode=host)
+- Не стал создавать переменных как `MONGO_DSN=`, `WEB_APP_ENDPOINT=`
+- Приложение развертывается на `localhost` (network_mode=host)
 ```
 MONGO_DSN="mongodb://root:toor@localhost:27017/"
 WEB_APP_ENDPOINT="http://localhost:80/api/v1"
 ```
 
 ## Скрины
-### Bot
-![Bot](./data/BOT.png)
 ### Web
 ![Web](./data/WEB.png)
+### Bot
+![Bot](./data/BOT.png)
