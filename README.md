@@ -10,6 +10,8 @@ VideoProcessing, ImageProcessing
 FullStack, FrontEnd, BackEnd, ORM, Database, Serialization
 - [ ] [SkyTrack](./WebDevelopment/SkyTrack)
 - [ ] [KrakenPublicAPI](./WebDevelopment/KrakenPublicAPI)
+- [ ] [IP-VEA](./WebDevelopment/IP-VEA)
+- [x] Nginx/Unit
 - [x] Flask
 - [x] AioHTTP
 - [x] FastAPI
@@ -17,6 +19,8 @@ FullStack, FrontEnd, BackEnd, ORM, Database, Serialization
 - [x] Redux
 - [x] JSON
 - [x] sqlite3
+- [x] MongoDB
+- [x] aiogram
 - [x] Pydantic
 - [x] SQLAlchemy
 
