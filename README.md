@@ -1,11 +1,3 @@
-## Computer Vision
-VideoProcessing, ImageProcessing
-- [x] NumPy
-- [x] PIL
-- [x] OpenCV
-- [x] MatplotLib
-- [x] PyQt5
-
 ## Web Development
 FullStack, FrontEnd, BackEnd, ORM, Database, Serialization
 - [ ] [SkyTrack](./WebDevelopment/SkyTrack)
@@ -43,3 +35,11 @@ Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing,
 - [x] spacy
 - [x] urllib
 - [x] requests
+
+## Computer Vision
+VideoProcessing, ImageProcessing
+- [x] NumPy
+- [x] PIL
+- [x] OpenCV
+- [x] MatplotLib
+- [x] PyQt5
