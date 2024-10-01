@@ -1,0 +1,21 @@
+services:
+
+  db:
+    image: postgres
+    shm_size: 128mb
+    env_file:
+      - ./database/.env
+    restart: always
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - 8000:8000
+    links:
+      - "db:database"
+    restart: always
+    depends_on:
+      - db
+
+  # TODO: bot
