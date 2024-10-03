@@ -70,7 +70,7 @@ tree -a -I "__pycache__|__init__.py|.idea" --dirsfirst
 ```bash
 docker compose up --build
 ```
-- Проект доступно по ссылке: [http://0.0.0.0:8000/docs](http://0.0.0.0:8000/docs)
+- Проект будет доступно по ссылке: [http://0.0.0.0:8000/docs](http://0.0.0.0:8000/docs)
   - `POST /upload/` - Принимает файл и имя претендента, сохраняет их
   - `POST /delete/<resume_id>/` - Удаляет резюме из базы и удаляет файл
   - `POST /vote/` - Увеличивает голоса (`vote_count`) резюме

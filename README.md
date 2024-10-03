@@ -1,5 +1,6 @@
 ## Web Development
 FullStack, FrontEnd, BackEnd, ORM, Database, Serialization
+- [ ] [MVP Project](./WebDevelopment/MVPProject)
 - [ ] [SkyTrack](./WebDevelopment/SkyTrack)
 - [ ] [IP-VEA](./WebDevelopment/IP-VEA)
 - [ ] [KrakenPublicAPI](./WebDevelopment/KrakenPublicAPI)
