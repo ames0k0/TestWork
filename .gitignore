@@ -5,6 +5,9 @@ static/*
 # vim
 *.swp
 
+# DrawIO
+*.drawio.bkp
+
 node_modules/
 */node_modules/
 

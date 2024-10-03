@@ -85,7 +85,7 @@ docker compose up --build
 - Резюме из папки `static` доступно по `/static/`
   - `/code/static/resume/<filename>`
   - `http://0.0.0.0:8000/static/resume/<filename>`
-  - Будут не доступны после завершения проекта
+  - Файлы будут удалены после завершения проекта (контейнера)
 
 ---
 <p align="center"><img src="./data/api.png" /></p>
