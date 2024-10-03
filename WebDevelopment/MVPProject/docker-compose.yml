@@ -1,0 +1,20 @@
+# TODO
+# - restart: always
+# - volumes - Uploaded files to the container will be deleted
+
+services:
+
+  postgresql:
+    image: postgres
+    shm_size: 128mb
+    env_file:
+      - ./secret/.env-postgresql
+
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    links:
+      - "postgresql:postgresql"
+    depends_on:
+      - postgresql
