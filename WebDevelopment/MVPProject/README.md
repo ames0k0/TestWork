@@ -9,8 +9,8 @@
 <ul>
   <li>FastAPI <sup style="color: green;">[1]</sup></li>
   <li>FastAPI Pagination <sup style="color: green;">[2]</sup></li>
-  <li>PostgreSQL <sup style="color: green;">[3]</sup></li>
-  <li>SQLAlchemy <sup style="color: green;">[4]</sup></li>
+  <li>SQLAlchemy <sup style="color: green;">[3]</sup></li>
+  <li>PostgreSQL <sup style="color: green;">[4]</sup></li>
   <li>Pydantic <sup style="color: green;">[5]</sup></li>
 </ul>
 
@@ -73,8 +73,8 @@ docker compose up --build
 ```
 - Проект будет доступно по ссылке: [http://0.0.0.0:8000/docs](http://0.0.0.0:8000/docs)
   - `POST /upload/` - Принимает файл и имя претендента, сохраняет их
-  - `POST /delete/<resume_id>/` - Удаляет резюме из базы и удаляет файл
   - `POST /vote/` - Увеличивает голоса (`vote_count`) резюме
+  - `DELETE /delete/<resume_id>/` - Удаляет резюме из базы и удаляет файл
   - `GET /list/` - Выводит пагинированный список резюме
 
 ## Замечание от автора проекта
@@ -94,8 +94,8 @@ docker compose up --build
 ### Ссылки
 - [1] https://fastapi.tiangolo.com
 - [2] https://uriyyo-fastapi-pagination.netlify.app
-- [3] https://hub.docker.com/_/postgres
-- [4] https://www.sqlalchemy.org
+- [3] https://www.sqlalchemy.org
+- [4] https://hub.docker.com/_/postgres
 - [5] https://docs.pydantic.dev/latest
 - [6] https://docs.docker.com
 - [7] https://docs.docker.com/compose
