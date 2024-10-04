@@ -7,16 +7,17 @@
 
 <h5>Использованные технологии для разработки</h5>
 <ul>
-  <li>FastAPI</li>
-  <li>PostgreSQL</li>
-  <li>SQLAlchemy</li>
-  <li>Pydantic</li>
+  <li>FastAPI <sup style="color: green;">[1]</sup></li>
+  <li>FastAPI Pagination <sup style="color: green;">[2]</sup></li>
+  <li>PostgreSQL <sup style="color: green;">[3]</sup></li>
+  <li>SQLAlchemy <sup style="color: green;">[4]</sup></li>
+  <li>Pydantic <sup style="color: green;">[5]</sup></li>
 </ul>
 
 <h5>Использованные технологии для контейнеризации и изолированного запуска</h5>
 <ul>
-  <li>Docker</li>
-  <li>Docker Compose</li>
+  <li>Docker <sup style="color: green;">[6]</sup></li>
+  <li>Docker Compose <sup style="color: green;">[7]</sup></li>
 </ul>
 
 ## Запуск проекта
@@ -89,3 +90,15 @@ docker compose up --build
 
 ---
 <p align="center"><img src="./data/api.png" /></p>
+
+### Ссылки
+- [1] https://fastapi.tiangolo.com
+- [2] https://uriyyo-fastapi-pagination.netlify.app
+- [3] https://hub.docker.com/_/postgres
+- [4] https://www.sqlalchemy.org
+- [5] https://docs.pydantic.dev/latest
+- [6] https://docs.docker.com
+- [7] https://docs.docker.com/compose
+- [FastAPI best practices](https://github.com/zhanymkanov/fastapi-best-practices)
+- [Full-Stack FastAPI template](https://github.com/fastapi/full-stack-fastapi-template)
+- [Draw.io](https://www.drawio.com/doc)
