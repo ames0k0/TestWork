@@ -18,6 +18,11 @@ FullStack, FrontEnd, BackEnd, ORM, Database, Serialization
 - [x] Pydantic
 - [x] SQLAlchemy
 
+## Data Engineering
+- [ ] [Leads](./DataEngineering/Leads)
+- [x] Prefect
+- [x] Pandas
+
 ## Projects and Scripts
 Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing, Networks, SHELL
 - [ ] [CountDotsInPic](./ProjectsAndScripts/CountDotsInPic)

@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "leads"
+version = "0.1.0"
+description = ""
+authors = ["YóUnǎi <c0d3r.nodiru.gaji@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+croniter = "^3.0.3"
+prefect = "^3.0.3"
+aiohttp = "^3.10.8"
+pandas = "^2.2.3"
+lxml = "^5.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
