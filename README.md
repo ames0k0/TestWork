@@ -18,12 +18,7 @@ FullStack, FrontEnd, BackEnd, ORM, Database, Serialization
 - [x] Pydantic
 - [x] SQLAlchemy
 
-## Data Engineering
-- [ ] [Leads](./DataEngineering/Leads)
-- [x] Prefect
-- [x] Pandas
-
-## Projects and Scripts
+## Scripts
 Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing, Networks, SHELL
 - [ ] [CountDotsInPic](./ProjectsAndScripts/CountDotsInPic)
 - [ ] [WordCounter - Python Implementation](./ProjectsAndScripts/wc.py)
@@ -50,3 +45,8 @@ VideoProcessing, ImageProcessing
 - [x] OpenCV
 - [x] MatplotLib
 - [x] PyQt5
+
+## Data Engineering
+- [ ] [Leads](./DataEngineering/Leads)
+- [x] Prefect
+- [x] Pandas
