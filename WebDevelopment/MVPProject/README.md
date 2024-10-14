@@ -16,17 +16,19 @@
 
 <h5>Использованные технологии для контейнеризации и изолированного запуска</h5>
 <ul>
-  <li>Docker <sup style="color: green;">[6]</sup></li>
-  <li>Docker Compose <sup style="color: green;">[7]</sup></li>
+  <li>Uvicorn <sup style="color: green;">[6]</sup></li>
+  <li>Docker <sup style="color: green;">[7]</sup></li>
+  <li>Docker Compose <sup style="color: green;">[8]</sup></li>
 </ul>
 
 ## Запуск проекта
 <details>
 <summary>Зависимости проекта</summary>
 <pre>
-docker --version        # Docker version 27.2.1, build 9e34c9b
-poetry -V               # Poetry (version 1.8.3)
-poetry run python -V    # Python 3.11.6
+docker --version              # Docker version 27.2.1, build 9e34c9b
+poetry -V                     # Poetry (version 1.8.3)
+poetry run uvicorn --version  # Running uvicorn 0.31.0 with CPython 3.11.6 on Linux
+poetry run python -V          # Python 3.11.6
 </pre>
 </details>
 
@@ -97,8 +99,9 @@ docker compose up --build
 - [3] https://www.sqlalchemy.org
 - [4] https://hub.docker.com/_/postgres
 - [5] https://docs.pydantic.dev/latest
-- [6] https://docs.docker.com
-- [7] https://docs.docker.com/compose
+- [6] https://www.uvicorn.org
+- [7] https://docs.docker.com
+- [8] https://docs.docker.com/compose
 - [FastAPI best practices](https://github.com/zhanymkanov/fastapi-best-practices)
 - [Full-Stack FastAPI template](https://github.com/fastapi/full-stack-fastapi-template)
 - [Draw.io](https://www.drawio.com/doc)

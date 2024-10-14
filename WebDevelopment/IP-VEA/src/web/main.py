@@ -1,6 +1,3 @@
-import os
-import json
-
 import motor.motor_asyncio
 from fastapi import FastAPI
 
