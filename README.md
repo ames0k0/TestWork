@@ -1,41 +1,38 @@
 ## Web Development
 Full-Stack, Front-End, Back-End, ORM, Database, Serialization
 - [x] [MVP Project](./WebDevelopment/MVPProject) - `API` **для сохранения резюме, и систему рейтинга**
-  - FastAPI <sup style="color: green;">[1]</sup>,
-    FastAPI Pagination <sup style="color: green;">[2]</sup>,
-    SQLAlchemy <sup style="color: green;">[3]</sup>,
-    PostgreSQL <sup style="color: green;">[4]</sup>,
-    Pydantic <sup style="color: green;">[5]</sup>
-  - Uvicorn <sup style="color: green;">[6]</sup>,
-    Docker <sup style="color: green;">[7]</sup>,
-    Docker Compose <sup style="color: green;">[8]</sup>
+  - FastAPI <sup>[1]</sup>,
+    FastAPI Pagination <sup>[2]</sup>,
+    SQLAlchemy <sup>[3]</sup>,
+    PostgreSQL <sup>[4]</sup>,
+    Pydantic <sup>[5]</sup>
+  - Uvicorn <sup>[6]</sup>,
+    Docker <sup>[7]</sup>,
+    Docker Compose <sup>[8]</sup>
 - [x] [SkyTrack](./WebDevelopment/SkyTrack) - `API` **для добавления заказа и просмотр истории заказов**
-  - FastAPI <sup style="color: green;">[1]</sup>,
-    SQLAlchemy <sup style="color: green;">[3]</sup>,
-    Pydantic <sup style="color: green;">[5]</sup>
-  - Uvicorn <sup style="color: green;">[6]</sup>
-- [ ] [IP-VEA](./WebDevelopment/IP-VEA) - **Проект позволяет создавать (написать) анонимных сообщений**
-  - FastAPI <sup style="color: green;">[1]</sup>,
-    MongoDB <sup style="color: green;">[9]</sup>,
-    aiogram <sup style="color: green;">[10]</sup>
-  - NGINX Unit <sup style="color: green;">[11]</sup>,
-    Docker <sup style="color: green;">[7]</sup>,
-    Docker Compose <sup style="color: green;">[8]</sup>
-- [ ] [KrakenPublicAPI](./WebDevelopment/KrakenPublicAPI)
+  - FastAPI <sup>[1]</sup>,
+    SQLAlchemy <sup>[3]</sup>,
+    Pydantic <sup>[5]</sup>
+  - Uvicorn <sup>[6]</sup>
+- [x] [IP-VEA](./WebDevelopment/IP-VEA) - **Проект позволяет создавать (написать) анонимных сообщений**
+  - FastAPI <sup>[1]</sup>,
+    MongoDB <sup>[9]</sup>,
+    aiogram <sup>[10]</sup>
+  - NGINX Unit <sup>[11]</sup>,
+    Docker <sup>[7]</sup>,
+    Docker Compose <sup>[8]</sup>
 - [x] [ZMTeam](./WebDevelopment/ZMTeam) - **TO-DO Приложение: создание и обновлений задач**
-  - FastAPI <sup style="color: green;">[1]</sup>,
-    SQLAlchemy <sup style="color: green;">[3]</sup>,
-    PostgreSQL <sup style="color: green;">[4]</sup>
-  - Uvicorn <sup style="color: green;">[6]</sup>,
-    Docker <sup style="color: green;">[7]</sup>,
-    Docker Compose <sup style="color: green;">[8]</sup>
-- [ ] Todo
-  - Flask
-  - AioHTTP
-  - ReactJS
-  - Redux
+  - FastAPI <sup>[1]</sup>,
+    SQLAlchemy <sup>[3]</sup>,
+    PostgreSQL <sup>[4]</sup>
+  - Uvicorn <sup>[6]</sup>,
+    Docker <sup>[7]</sup>,
+    Docker Compose <sup>[8]</sup>
+- [ ] [KrakenPublicAPI](./WebDevelopment/KrakenPublicAPI)
+- [ ] BeeJee
+  - Flask, AioHTTP, ReactJS, Redux
 
-## Scripts
+## Projects and Scripts
 Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing, Networks, SHELL
 - [ ] [CountDotsInPic](./ProjectsAndScripts/CountDotsInPic)
 - [ ] [WordCounter - Python Implementation](./ProjectsAndScripts/wc.py)

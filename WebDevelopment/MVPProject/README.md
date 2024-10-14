@@ -7,18 +7,18 @@
 
 <h5>Использованные технологии для разработки</h5>
 <ul>
-  <li>FastAPI <sup style="color: green;">[1]</sup></li>
-  <li>FastAPI Pagination <sup style="color: green;">[2]</sup></li>
-  <li>SQLAlchemy <sup style="color: green;">[3]</sup></li>
-  <li>PostgreSQL <sup style="color: green;">[4]</sup></li>
-  <li>Pydantic <sup style="color: green;">[5]</sup></li>
+  <li>FastAPI <sup>[1]</sup></li>
+  <li>FastAPI Pagination <sup>[2]</sup></li>
+  <li>SQLAlchemy <sup>[3]</sup></li>
+  <li>PostgreSQL <sup>[4]</sup></li>
+  <li>Pydantic <sup>[5]</sup></li>
 </ul>
 
 <h5>Использованные технологии для контейнеризации и изолированного запуска</h5>
 <ul>
-  <li>Uvicorn <sup style="color: green;">[6]</sup></li>
-  <li>Docker <sup style="color: green;">[7]</sup></li>
-  <li>Docker Compose <sup style="color: green;">[8]</sup></li>
+  <li>Uvicorn <sup>[6]</sup></li>
+  <li>Docker <sup>[7]</sup></li>
+  <li>Docker Compose <sup>[8]</sup></li>
 </ul>
 
 ## Запуск проекта
