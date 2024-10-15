@@ -39,16 +39,27 @@ Full-Stack, Front-End, Back-End, ORM, Database, Serialization
   - React.js<sup>14</sup>
 
 ## Projects and Scripts
+Data Structures, Algorithms, Subprocess, Datetime, Social Media API<br/>
 Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing, Networks, SHELL
 
 ### Test Tasks
 - [ ] [CountDotsInPic](./ProjectsAndScripts/CountDotsInPic)
 - [ ] [WordCounter - Python Implementation](./ProjectsAndScripts/wc.py)
 - [ ] [STT-Engine Result Fix](./ProjectsAndScripts/imot-io.py)
+- [ ] [Web Content With Socket](./ProjectsAndScripts/WebContentWithSocket)
 - [ ] TODO
   - math, socket, argparse, fileinput, itertools, functools, contextlib, collections, bs4, nltk, spacy, urllib, requests
 
 ### Personal
+- [ ] [Morse Code](./ProjectsAndScripts/Personal/MorseCode) - **Практика Python: Магические Методы**
+- [ ] [Max Alpha String](./ProjectsAndScripts/Personal/max_string_by_alpha_without_check) - **Практика Python: Длинная строка без проверки**
+- [ ] [Multiplication Table](./ProjectsAndScripts/Personal/MultiplicationTable) - **Практика Python: Таблица умножения**
+- [ ] [yobit.net](./ProjectsAndScripts/Personal/yobit.net) - **Trading platform: Cryptocurrency exchange**
+- [ ] [nhk.or.jp](./ProjectsAndScripts/Personal/nhk.or.jp)
+- [ ] [animations](./ProjectsAndScripts/Personal/animations)
+- [x] [kasuga100](./ProjectsAndScripts/Personal/kasuga100) - **FixFor: css text-indent overflow**
+- [ ] [FindSix](./ProjectsAndScripts/Personal/FindSix) - **Generating matrix NxN with numbers `5` and one `6`**
+- [ ] [Human Readable Numbers](./ProjectsAndScripts/Personal/HumanReadableNumbers) - **Make numbers Human-Readable**
 - [ ] Minimap
 - [ ] Tony
 - [ ] 305
@@ -56,8 +67,6 @@ Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing,
 - [ ] Browser tabs
 - [ ] Christmas tree
 - [ ] Pixels to logo
-- [ ] [Morse Code](./ProjectsAndScripts/Personal/MorseCode) - **Практика Python: Магические Методы**
-- [ ] [yobit.net](./ProjectsAndScripts/Personal/yobit.net) - **Trading platform: Cryptocurrency exchange**
 
 ## Computer Vision
 VideoProcessing, ImageProcessing

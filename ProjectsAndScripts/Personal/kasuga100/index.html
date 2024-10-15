@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <style>
+      .container {
+        background-color: red;
+        height: 300px;
+      }
+      .customer_list {
+        display: flex;
+        width: 870px;
+        margin: 0 auto 32px;
+        position: relative;
+      }
+      .slick-track {
+        opacity: 1;
+        width: 100000px;
+        transform: translate3d(-1980px, 0px, 0px);
+      }
+      .slick-prev {
+        left: -32px;
+        top: 116px;
+      }
+      .slick-arrow {
+        background: url("static/icn_arrow.png") no-repeat;
+        width: 21px;
+        height: 35px;
+        border: none;
+        text-indent: -9999px;
+        position: absolute;
+        <!-- FIXFOR: *text-indent overflow after `slick-next` transform rotate -->
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .slick-list {
+        position: relative;
+        overflow: hidden;
+        margin: 0px;
+        padding: 0px;
+      }
+      .slick-next {
+        right: -30px;
+        transform: rotate(180deg);
+        top: 116px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul id="customer-slide" class="customer_list slick-initialized slick-slider">
+        <button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="display: block;">Previous</button>
+        <div class="slick-list draggable">
+          <div class="slick-track"></div>
+        </div>
+        <button class="slick-next slick-arrow" aria-label="Next" type="button" style="display: block;">Next</button>
+      </ul>
+    </div>
+  </body>
+</html>
