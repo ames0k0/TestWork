@@ -1,7 +1,7 @@
 ## Web Development
 Full-Stack, Front-End, Back-End, ORM, Database, Serialization
 
-### Test Tasks - Тестовые задания
+### Test Tasks
 - [x] [MVP Project](./WebDevelopment/MVPProject) - `API` **для сохранения резюме, и систему рейтинга**
   - FastAPI<sup>1</sup>,
     FastAPI Pagination<sup>2</sup>,
@@ -37,23 +37,22 @@ Full-Stack, Front-End, Back-End, ORM, Database, Serialization
 ## Projects and Scripts
 Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing, Networks, SHELL
 
-### Test Tasks - Тестовые задания
+### Test Tasks
 - [ ] [CountDotsInPic](./ProjectsAndScripts/CountDotsInPic)
 - [ ] [WordCounter - Python Implementation](./ProjectsAndScripts/wc.py)
 - [ ] [STT-Engine Result Fix](./ProjectsAndScripts/imot-io.py)
 - [ ] TODO
   - math, socket, argparse, fileinput, itertools, functools, contextlib, collections, bs4, nltk, spacy, urllib, requests
 
-### Personal Projects - Личные проекты
-List of small and maybe fun projects to do :)
-
-- [ ] minimap
-- [ ] tony
+### Personal
+- [ ] Minimap
+- [ ] Tony
 - [ ] 305
-- [ ] led_ticker_display
-- [ ] browser_tabs
-- [ ] christmas_tree
-- [ ] pixels2logo
+- [ ] LED ticker display
+- [ ] Browser tabs
+- [ ] Christmas tree
+- [ ] Pixels to logo
+- [ ] [Morse Code](./ProjectsAndScripts/Personal/MorseCode) - **Практика Python: Магические Методы**
 
 
 ## Computer Vision
@@ -63,12 +62,12 @@ VideoProcessing, ImageProcessing
 
 ## Data Engineering
 
-### Test Tasks - Тестовые задания
+### Test Tasks
 - [ ] [Leads](./DataEngineering/Leads)
   - Prefect<sup>12</sup>,
     Pandas<sup>13</sup>
 
-## References - Ссылки
+## References
 - <sup>1</sup>https://fastapi.tiangolo.com
 - <sup>2</sup>https://uriyyo-fastapi-pagination.netlify.app
 - <sup>3</sup>https://www.sqlalchemy.org
