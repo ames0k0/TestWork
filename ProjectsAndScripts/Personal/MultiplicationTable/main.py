@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# __author__ = 'kira@-築城院 真鍳'
+# __author__ = "ames0k0"
 
 from argparse import ArgumentParser
 from prettytable import PrettyTable
@@ -11,7 +11,7 @@ def _tlike(start, stop):
     res = []
     mino = len(str(start))
     for i in range(start, stop):
-        if i >= 0 and i < 10:
+        if 0 <= i < 10:
             req = " " * (mino-1)
             res.append(req + str(i))
         else:
@@ -25,7 +25,7 @@ def _loop(head: list, sq: int, sp: bool) -> list:
     for i in head:
         mult = i*sq
         if sp:
-            if mult >= 0 and mult < 10:
+            if 0 <= mult < 10:
                 req = " " * (mino - 1)
                 res.append(req + str(mult))
             else:
@@ -37,11 +37,12 @@ def _loop(head: list, sq: int, sp: bool) -> list:
 
 def rule():
     z = PrettyTable()
-    z._set_field_names(['First', 'Mark', 'Second', 'NL', 'Example'])
+    z.field_names = ['First', 'Mark', 'Second', 'NL', 'Example']
     z.add_row(['+', 'x', '+', 'two positives make a positive', '3 x 2 = 6'])
     z.add_row(['-', 'x', '-', 'two negatives make a positive', '(-3) x (-2) = 6'])
     z.add_row(['-', 'x', '+', 'a negative and a positive make a negative', '(-3) x 2 = -6'])
     z.add_row(['+', 'x', '-', 'a positive and a negative make a negative', '3 x (-2) = -6'])
+    print("\n")
     print(z)
 
 
@@ -62,7 +63,7 @@ def mul_table(form: int) -> str:
 
     head = [j for j in range(1, form+1)]
     x = PrettyTable()
-    x._set_field_names(head)
+    x.field_names = head
 
     for i in range(1, form+1):
         x.add_row(_loop(head, i, False))
@@ -89,7 +90,7 @@ def negmul_table(form: str) -> str:
     head = _tlike(start, stop)
     lhead = [j for j in range(start, stop)]
     y = PrettyTable()
-    y._set_field_names(["X", *lhead])
+    y.field_names = ["X", *lhead]
 
     for e, i in enumerate(range(start, stop)):
         y.add_row([head[e]] + _loop(lhead, i, True))
@@ -98,10 +99,12 @@ def negmul_table(form: str) -> str:
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("-mt", help="generate Multiplication Table", type=int)
+    parser.add_argument(
+        "-mt", help="Multiplication Table (ex.): -mt 10", type=int
+    )
     parser.add_argument(
         "-nmt",
-        help="generate Multiplication Table from Negative", type=str
+        help="Negative Multiplication Table (ex.): -nmt=-10x1", type=str
     )
     args = parser.parse_args()
 
@@ -115,5 +118,5 @@ if __name__ == "__main__":
         negmul_table(nmt)
 
     if not mt and not nmt:
-        print("multiplication_tables -h")
-
+        parser.print_help()
+        rule()

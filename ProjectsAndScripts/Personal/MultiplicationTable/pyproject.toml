@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "multiplicationtable"
+version = "0.1.0"
+description = ""
+authors = ["YóUnǎi <c0d3r.nodiru.gaji@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+prettytable = "^3.11.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

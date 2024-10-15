@@ -1,5 +1,4 @@
 ## Web Development
-Full-Stack, Front-End, Back-End, ORM, Database, Serialization
 
 ### Test Tasks
 - [x] [MVP Project](./WebDevelopment/MVPProject) - `API` **для сохранения резюме, и систему рейтинга**
@@ -31,30 +30,29 @@ Full-Stack, Front-End, Back-End, ORM, Database, Serialization
     Docker<sup>7</sup>,
     Docker Compose<sup>8</sup>
 - [x] [KrakenPublicAPI](./WebDevelopment/KrakenPublicAPI) - **Локальный сервер с данными Trade-ов Kraken**
-- [ ] BeeJee
-  - Flask, AioHTTP, ReactJS, Redux
+- [ ] [BeeJee](./WebDevelopment/BeeJee) - **Full-Stack TO-DO Web Application**
+  - React.js<sup>14</sup>,
+    Redux<sup>15</sup>,
+    NodeJS<sup>16</sup>,
+    Flask<sup>17</sup>
 
 ### Personal
 - [x] [Simple React.js app](./WebDevelopment/Personal/ReactJS)
   - React.js<sup>14</sup>
 
 ## Projects and Scripts
-Data Structures, Algorithms, Subprocess, Datetime, Social Media API<br/>
-Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing, Networks, SHELL
 
 ### Test Tasks
 - [x] [CountDotsInPic](./ProjectsAndScripts/CountDotsInPic) - **Алгоритм для подсчёта точек в картинке**
 - [x] [WordCounter - Python Implementation](ProjectsAndScripts/WordCounter/wc.py) - **Имплементации программы `wc` на Python**
 - [x] [STT-Engine Result Fixer](ProjectsAndScripts/ImotIO) - **STT-Engine result fixer**
 - [ ] [Web Content With Socket](./ProjectsAndScripts/WebContentWithSocket)
-- [ ] TODO
-  - math, socket, argparse, fileinput, itertools, functools, contextlib, collections, bs4, nltk, spacy, urllib, requests
 
 ### Personal
 - [ ] [Morse Code](./ProjectsAndScripts/Personal/MorseCode) - **Практика Python: Магические Методы**
 - [ ] [Max Alpha String](./ProjectsAndScripts/Personal/max_string_by_alpha_without_check) - **Практика Python: Длинная строка без проверки**
-- [ ] [Multiplication Table](./ProjectsAndScripts/Personal/MultiplicationTable) - **Практика Python: Таблица умножения**
-- [ ] [yobit.net](./ProjectsAndScripts/Personal/yobit.net) - **Trading platform: Cryptocurrency exchange**
+- [x] [Multiplication Table](./ProjectsAndScripts/Personal/MultiplicationTable) - **Практика Python: Таблица умножения**
+- [x] [yobit.net](./ProjectsAndScripts/Personal/yobit.net) - **Trading platform: Cryptocurrency exchange**
 - [ ] [nhk.or.jp](./ProjectsAndScripts/Personal/nhk.or.jp)
 - [ ] [animations](./ProjectsAndScripts/Personal/animations)
 - [x] [kasuga100](./ProjectsAndScripts/Personal/kasuga100) - **FixFor: css text-indent overflow**
@@ -69,9 +67,14 @@ Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing,
 - [ ] Pixels to logo
 
 ## Computer Vision
-VideoProcessing, ImageProcessing
-- [ ] TODO
-  - NumPy, PIL, OpenCV, MatplotLib, PyQt5
+
+### Test Tasks
+- [ ] [visionero](./ComputerVision/visionero)
+  - NumPy<sup>18</sup>,
+    Pillow<sup>19</sup>,
+    OpenCV<sup>20</sup>,
+    MatplotLib<sup>21</sup>,
+    PyQt5<sup>22</sup>
 
 ## Data Engineering
 
@@ -95,3 +98,11 @@ VideoProcessing, ImageProcessing
 - <sup>12</sup>https://www.prefect.io
 - <sup>13</sup>https://pandas.pydata.org
 - <sup>14</sup>https://react.dev
+- <sup>15</sup>https://redux.js.org
+- <sup>16</sup>https://nodejs.org
+- <sup>17</sup>https://flask.palletsprojects.com
+- <sup>18</sup>https://numpy.org
+- <sup>19</sup>https://pypi.org/project/pillow
+- <sup>20</sup>https://opencv.org
+- <sup>21</sup>https://matplotlib.org
+- <sup>22</sup>https://pypi.org/project/PyQt5
