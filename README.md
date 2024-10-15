@@ -1,5 +1,7 @@
 ## Web Development
 Full-Stack, Front-End, Back-End, ORM, Database, Serialization
+
+### Test Tasks - Тестовые задания
 - [x] [MVP Project](./WebDevelopment/MVPProject) - `API` **для сохранения резюме, и систему рейтинга**
   - FastAPI<sup>1</sup>,
     FastAPI Pagination<sup>2</sup>,
@@ -34,11 +36,25 @@ Full-Stack, Front-End, Back-End, ORM, Database, Serialization
 
 ## Projects and Scripts
 Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing, Networks, SHELL
+
+### Test Tasks - Тестовые задания
 - [ ] [CountDotsInPic](./ProjectsAndScripts/CountDotsInPic)
 - [ ] [WordCounter - Python Implementation](./ProjectsAndScripts/wc.py)
 - [ ] [STT-Engine Result Fix](./ProjectsAndScripts/imot-io.py)
 - [ ] TODO
   - math, socket, argparse, fileinput, itertools, functools, contextlib, collections, bs4, nltk, spacy, urllib, requests
+
+### Personal Projects - Личные проекты
+List of small and maybe fun projects to do :)
+
+- [ ] minimap
+- [ ] tony
+- [ ] 305
+- [ ] led_ticker_display
+- [ ] browser_tabs
+- [ ] christmas_tree
+- [ ] pixels2logo
+
 
 ## Computer Vision
 VideoProcessing, ImageProcessing
@@ -46,12 +62,13 @@ VideoProcessing, ImageProcessing
   - NumPy, PIL, OpenCV, MatplotLib, PyQt5
 
 ## Data Engineering
+
+### Test Tasks - Тестовые задания
 - [ ] [Leads](./DataEngineering/Leads)
   - Prefect<sup>12</sup>,
     Pandas<sup>13</sup>
 
----
-### References
+## References - Ссылки
 - <sup>1</sup>https://fastapi.tiangolo.com
 - <sup>2</sup>https://uriyyo-fastapi-pagination.netlify.app
 - <sup>3</sup>https://www.sqlalchemy.org
