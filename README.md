@@ -53,7 +53,7 @@ Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing,
 - [ ] Christmas tree
 - [ ] Pixels to logo
 - [ ] [Morse Code](./ProjectsAndScripts/Personal/MorseCode) - **Практика Python: Магические Методы**
-
+- [ ] [yobit.net](./ProjectsAndScripts/Personal/yobit.net) - **Trading platform: Cryptocurrency exchange**
 
 ## Computer Vision
 VideoProcessing, ImageProcessing
