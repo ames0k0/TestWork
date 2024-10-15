@@ -1,3 +1,7 @@
+# Test Works / Tasks, Projects and Scripts
+- [x] Checked - Means OK / Done
+- [ ] Not Checked - Means not OK / not Done
+
 ## Web Development
 
 ### Test Tasks
@@ -46,18 +50,18 @@
 - [x] [CountDotsInPic](./ProjectsAndScripts/CountDotsInPic) - **Алгоритм для подсчёта точек в картинке**
 - [x] [WordCounter - Python Implementation](ProjectsAndScripts/WordCounter/wc.py) - **Имплементации программы `wc` на Python**
 - [x] [STT-Engine Result Fixer](ProjectsAndScripts/ImotIO) - **STT-Engine result fixer**
-- [ ] [Web Content With Socket](./ProjectsAndScripts/WebContentWithSocket)
+- [x] [Web Content With Socket](./ProjectsAndScripts/WebContentWithSocket) - **Downloading the Web page (HTML) via `socket`**
 
 ### Personal
 - [ ] [Morse Code](./ProjectsAndScripts/Personal/MorseCode) - **Практика Python: Магические Методы**
-- [ ] [Max Alpha String](./ProjectsAndScripts/Personal/max_string_by_alpha_without_check) - **Практика Python: Длинная строка без проверки**
+- [x] [Max Alpha String](./ProjectsAndScripts/Personal/max_string_by_alpha_without_check) - **Практика Python: Длинная строка без проверки**
 - [x] [Multiplication Table](./ProjectsAndScripts/Personal/MultiplicationTable) - **Практика Python: Таблица умножения**
+- [x] [animations](./ProjectsAndScripts/Personal/animations) - **Практика Python: Анимации слов / строк**
 - [x] [yobit.net](./ProjectsAndScripts/Personal/yobit.net) - **Trading platform: Cryptocurrency exchange**
-- [ ] [nhk.or.jp](./ProjectsAndScripts/Personal/nhk.or.jp)
-- [ ] [animations](./ProjectsAndScripts/Personal/animations)
+- [x] [nhk.or.jp](./ProjectsAndScripts/Personal/nhk.or.jp) - **NHK Audio (mp3) lessons downloader**
 - [x] [kasuga100](./ProjectsAndScripts/Personal/kasuga100) - **FixFor: css text-indent overflow**
-- [ ] [FindSix](./ProjectsAndScripts/Personal/FindSix) - **Generating matrix NxN with numbers `5` and one `6`**
-- [ ] [Human Readable Numbers](./ProjectsAndScripts/Personal/HumanReadableNumbers) - **Make numbers Human-Readable**
+- [x] [FindSix](./ProjectsAndScripts/Personal/FindSix) - **Generating matrix NxN with numbers `5` and one `6`**
+- [x] [Human Readable Numbers](./ProjectsAndScripts/Personal/HumanReadableNumbers) - **Make shortened numbers Human-Readable**
 - [ ] Minimap
 - [ ] Tony
 - [ ] 305

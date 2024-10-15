@@ -5,7 +5,7 @@
 """
 |a|aa
 |a|ba
- +---> 0 -> reposition ?? (Noi)
+ +---> 0 -> reposition ??
 
 a|a|b
 a|b|a
@@ -57,7 +57,6 @@ while do_calc:
         except IndexError:
             change_me.pop(tindex)
             del positions[tindex]
-
 
     inc_index += 1
     do_calc = False

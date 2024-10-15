@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# __author__ = 'kira@-築城院 真鍳'
+# __author__ = "ames0k0"
+
 
 class RegisterNumber:
     """
@@ -77,3 +78,13 @@ class RegisterNumber:
             return self.cache[key]
         except Exception:
             return None
+
+
+if __name__ == "__main__":
+    rn = RegisterNumber()
+    key = "SECRET_KEY"
+    input_ = "tr65bi34mi2th18"
+    print(">>>", input_)
+    rn.register(key=key, value=input_)
+    output = rn.use(key=key)
+    print("<<<", output)

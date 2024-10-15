@@ -57,7 +57,6 @@ def solution():
 
             responce += data
 
-        # responce = responce.decode().replace('Институт', 'Корпорация')
         responce = responce.decode().replace('Институт', 'Корпорация')
 
         with open('iict.html', 'w') as f:

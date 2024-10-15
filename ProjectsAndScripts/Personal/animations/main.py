@@ -3,13 +3,13 @@ from time import sleep
 
 
 def fp(s, fp_speed):
-    for c in s + '\n':
-        sys.stdout.write(c)
-        sys.stdout.flush()
-        if fp_speed:
-        	sleep(1./fp_speed)
-        else:
-        	sleep(1./500)
+	for c in s + '\n':
+		sys.stdout.write(c)
+		sys.stdout.flush()
+	if fp_speed:
+		sleep(1./fp_speed)
+	else:
+		sleep(1./500)
 
 def right():
 	""" ---M ++GM -PGM RPGM """
@@ -192,7 +192,7 @@ if __name__ == '__main__':
     ++GM 	    ++RP 	    rPgm 	    GM++	    RP++	7:  anim_side
     -PGM 	    -RPG 	    rpGm 	    PGM- 	    RPG-
     RPGM 	    RPGM 	    rpgM 	    RPGM 	    RPGM
-	"""
+"""
 	speed = input('__set_speed: number from 2 to (999999) += n:_ ')
 	if speed:
 		try:
@@ -202,7 +202,7 @@ if __name__ == '__main__':
 			raise
 		print(plano)
 	else:
-		true_speed == None
+		true_speed = None
 	while True:
 		que = input("?: ")
 		if que:
@@ -214,7 +214,7 @@ if __name__ == '__main__':
 				count = input('how much time do UPPER all symbols:_ ')
 				try:
 					true_count = int(count)
-				except:
+				except ValueError:
 					print('    Only number')
 					break
 				fp(load_anim(true_count), true_speed)
