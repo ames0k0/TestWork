@@ -1,4 +1,4 @@
-# Test Works / Tasks, Projects and Scripts
+# Test Works / Tasks, Projects, Scripts
 - [x] Checked - Means OK / Done
 - [ ] Not Checked - Means not OK / not Done
 
@@ -51,6 +51,8 @@
 - [x] [WordCounter - Python Implementation](ProjectsAndScripts/WordCounter/wc.py) - **Имплементации программы `wc` на Python**
 - [x] [STT-Engine Result Fixer](ProjectsAndScripts/ImotIO) - **STT-Engine result fixer**
 - [x] [Web Content With Socket](./ProjectsAndScripts/WebContentWithSocket) - **Downloading the Web page (HTML) via `socket`**
+- [x] [Find Max Zeros](./ProjectsAndScripts/FindMaxZeros) - **Найти максимальную длину последовательных нулей**
+- [x] [Filter Duplicates by Timestamp](./ProjectsAndScripts/FilterDuplicates) - **Фильтр дубликатов**
 
 ### Personal
 - [ ] [Morse Code](./ProjectsAndScripts/Personal/MorseCode) - **Практика Python: Магические Методы**

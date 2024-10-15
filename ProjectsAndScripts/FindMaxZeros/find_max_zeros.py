@@ -13,4 +13,4 @@ def find_max_zeros(A):
     return len(max(findall(r'0+', "".join(nem))))
 
 A = [7, 15, 6, 20, 5, 10]
-print(_ne(A))
+print(find_max_zeros(A))
