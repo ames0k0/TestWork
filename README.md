@@ -34,6 +34,10 @@ Full-Stack, Front-End, Back-End, ORM, Database, Serialization
 - [ ] BeeJee
   - Flask, AioHTTP, ReactJS, Redux
 
+### Personal
+- [x] [Simple React.js app](./WebDevelopment/Personal/ReactJS)
+  - React.js<sup>14</sup>
+
 ## Projects and Scripts
 Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing, Networks, SHELL
 
@@ -81,3 +85,4 @@ VideoProcessing, ImageProcessing
 - <sup>11</sup>https://unit.nginx.org
 - <sup>12</sup>https://www.prefect.io
 - <sup>13</sup>https://pandas.pydata.org
+- <sup>14</sup>https://react.dev
