@@ -1,4 +1,5 @@
 # Learning Resources
+- Learning process: [YouTube Playlist](https://www.youtube.com/playlist?list=PL3HqI3Rgp3qiltDvyDBtmg2oBXpnXnAM6)
 
 ### HTML (HyperText Markup Language)
 - **Documentations**
