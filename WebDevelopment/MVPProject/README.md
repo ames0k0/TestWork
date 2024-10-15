@@ -7,18 +7,18 @@
 
 <h5>Использованные технологии для разработки</h5>
 <ul>
-  <li>FastAPI <sup>[1]</sup></li>
-  <li>FastAPI Pagination <sup>[2]</sup></li>
-  <li>SQLAlchemy <sup>[3]</sup></li>
-  <li>PostgreSQL <sup>[4]</sup></li>
-  <li>Pydantic <sup>[5]</sup></li>
+  <li>FastAPI<sup>1</sup></li>
+  <li>FastAPI Pagination<sup>2</sup></li>
+  <li>SQLAlchemy<sup>3</sup></li>
+  <li>PostgreSQL<sup>4</sup></li>
+  <li>Pydantic<sup>5</sup></li>
 </ul>
 
 <h5>Использованные технологии для контейнеризации и изолированного запуска</h5>
 <ul>
-  <li>Uvicorn <sup>[6]</sup></li>
-  <li>Docker <sup>[7]</sup></li>
-  <li>Docker Compose <sup>[8]</sup></li>
+  <li>Uvicorn<sup>6</sup></li>
+  <li>Docker<sup>7</sup></li>
+  <li>Docker Compose<sup>8</sup></li>
 </ul>
 
 ## Запуск проекта
@@ -94,14 +94,14 @@ docker compose up --build
 <p align="center"><img src="./data/api.png" /></p>
 
 ### Ссылки
-- [1] https://fastapi.tiangolo.com
-- [2] https://uriyyo-fastapi-pagination.netlify.app
-- [3] https://www.sqlalchemy.org
-- [4] https://hub.docker.com/_/postgres
-- [5] https://docs.pydantic.dev/latest
-- [6] https://www.uvicorn.org
-- [7] https://docs.docker.com
-- [8] https://docs.docker.com/compose
+- <sup>1</sup>https://fastapi.tiangolo.com
+- <sup>2</sup>https://uriyyo-fastapi-pagination.netlify.app
+- <sup>3</sup>https://www.sqlalchemy.org
+- <sup>4</sup>https://hub.docker.com/_/postgres
+- <sup>5</sup>https://docs.pydantic.dev/latest
+- <sup>6</sup>https://www.uvicorn.org
+- <sup>7</sup>https://docs.docker.com
+- <sup>8</sup>https://docs.docker.com/compose
 - [FastAPI best practices](https://github.com/zhanymkanov/fastapi-best-practices)
 - [Full-Stack FastAPI template](https://github.com/fastapi/full-stack-fastapi-template)
 - [Draw.io](https://www.drawio.com/doc)
