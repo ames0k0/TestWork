@@ -34,7 +34,9 @@ class WordCounter:
     $ cat /etc/passwd| wc
     46      62    2381
     """
-    __slots__ = ('pipes')
+    __slots__ = (
+        'pipes',
+    )
 
     def __init__(self, pipes):
         self.pipes = pipes

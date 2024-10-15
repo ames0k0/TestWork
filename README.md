@@ -30,7 +30,7 @@ Full-Stack, Front-End, Back-End, ORM, Database, Serialization
   - Uvicorn<sup>6</sup>,
     Docker<sup>7</sup>,
     Docker Compose<sup>8</sup>
-- [ ] [KrakenPublicAPI](./WebDevelopment/KrakenPublicAPI)
+- [x] [KrakenPublicAPI](./WebDevelopment/KrakenPublicAPI) - **Локальный сервер с данными Trade-ов Kraken**
 - [ ] BeeJee
   - Flask, AioHTTP, ReactJS, Redux
 
@@ -43,9 +43,9 @@ Data Structures, Algorithms, Subprocess, Datetime, Social Media API<br/>
 Arguments, Pipes, Generators, Iterators, Decorators, Functions, Text processing, Networks, SHELL
 
 ### Test Tasks
-- [ ] [CountDotsInPic](./ProjectsAndScripts/CountDotsInPic)
-- [ ] [WordCounter - Python Implementation](./ProjectsAndScripts/wc.py)
-- [ ] [STT-Engine Result Fix](./ProjectsAndScripts/imot-io.py)
+- [x] [CountDotsInPic](./ProjectsAndScripts/CountDotsInPic) - **Алгоритм для подсчёта точек в картинке**
+- [x] [WordCounter - Python Implementation](ProjectsAndScripts/WordCounter/wc.py) - **Имплементации программы `wc` на Python**
+- [x] [STT-Engine Result Fixer](ProjectsAndScripts/ImotIO) - **STT-Engine result fixer**
 - [ ] [Web Content With Socket](./ProjectsAndScripts/WebContentWithSocket)
 - [ ] TODO
   - math, socket, argparse, fileinput, itertools, functools, contextlib, collections, bs4, nltk, spacy, urllib, requests

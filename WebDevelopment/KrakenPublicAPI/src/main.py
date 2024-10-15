@@ -286,7 +286,7 @@ class KrakenAPI:
             if (Data.PAIR_DELIMITER not in r_endpoint):
               client_socket.send(
                 self.encode_message({
-                  'error': 'Endpoint: /pair_left-pair_rigth',
+                  'error': 'Endpoint: /pair_left-pair_right',
                   'pairs': Data.PAIRS
                 })
               )
