@@ -55,7 +55,7 @@
 - [x] [Filter Duplicates by Timestamp](./ProjectsAndScripts/FilterDuplicates) - **Фильтр дубликатов**
 
 ### Personal
-- [ ] [Morse Code](./ProjectsAndScripts/Personal/MorseCode) - **Практика Python: Магические Методы**
+- [ ] [Morse Code](./ProjectsAndScripts/Personal/MorseCode) - **Практика Python: `Morse Code` с Магическими Методами**
 - [x] [Max Alpha String](./ProjectsAndScripts/Personal/max_string_by_alpha_without_check) - **Практика Python: Длинная строка без проверки**
 - [x] [Multiplication Table](./ProjectsAndScripts/Personal/MultiplicationTable) - **Практика Python: Таблица умножения**
 - [x] [animations](./ProjectsAndScripts/Personal/animations) - **Практика Python: Анимации слов / строк**
