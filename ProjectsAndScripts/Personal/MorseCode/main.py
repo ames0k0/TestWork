@@ -1,195 +1,138 @@
 """
-
 # Character from Dots and Dashes
 # Delimiter as a Code stop \n|\0
 
 # TODO
-# __mul__
-# __add__
 # __eq__
 # __contains__
 
 # Generate a Character and then use it to check
 # - Save and Load Characters ?!
-
 """
 
+
 class Character:
-    __slots__ = (
+    """
+    """
+    __slots__: tuple[str, ...] = (
         "symbols",
     )
     def __init__(self):
-        self.symbols = []
+        # XXX: [dot, dash, ...]
+        self.symbols = []   # TODO: instance
 
-    # TODO: '....' -> '...-'
-    # def __lshift__(self, other):
-    #     print('Catch:', other)
-    #     self.symbols.append(other)
-    #     return self
+    def __lshift__(self, other):
+        raise NotImplementedError("'....' -> '...-'")
 
     def __add__(self, other: list):
-        # dot, (dot, dot, ...)
         self.symbols.extend(other)
 
 
-class Dot:
-    __slots__ = (
-        "char",
-        "symbol", "count"
-    )
-    def __init__(self):
-        self.char = None
-        self.symbol = "."
-        self.count = 1
-
-    def __mul__(self, other) -> list:
-        # (dot, dot, ...)
-        a = [
-            self for _ in range(other)
-        ]
-        return a
-
-    def __truediv__(self, other):
-        self.char = None
-        self.count = 1
-
-    def __add__(self, other):
-        # TODO: catching a *delimiter
-        # XXX: delimiter
-        # XXX: dot * 4 + delimiter + dot * 4 + delimiter
-        # dot, dash - character
-        # delimiter - word, sentence
-
-        # XXX: init character
-        if self.char is None:
-            self.char = Character()
-
-        # XXX: same symbol
-        if self is other:
-            # dot2 + dot2
-            other.count += self.count
-            # dot2
-            return other
-
-        if isinstance(other, Dash):
-            # dot2 + dash
-            self.char + (self * self.count)
-            # maybe create a character in *other
-            other.char = self.char
-            # dash
-            return other
-
-        # got *dash
-        if isinstance(other, Delimiter):
-            # delimiter
-            self.char + (self * self.count)
-            return other & self
-
-        raise NotImplementedError("Not Itself, Dot or Delimiter!", self)
-
-
-class Dash:
-    __slots__ = (
-        "char",
-        "symbol", "count"
-    )
-    def __init__(self):
-        self.char = None
-        self.symbol = "-"
-        self.count = 1
-
-    def __mul__(self, other) -> list:
-        # (dot, dot, ...)
-        a = [
-            self for _ in range(other)
-        ]
-        return a
-
-    def __truediv__(self, other):
-        self.char = None
-        self.count = 1
-
-    def __add__(self, other):
-        # TODO: catching a *delimiter
-        # XXX: delimiter
-        # XXX: dot * 4 + delimiter + dot * 4 + delimiter
-        # dot, dash - character
-        # delimiter - word, sentence
-
-        # XXX: init character
-        if self.char is None:
-            self.char = Character()
-
-        # XXX: same symbol
-        if self is other:
-            # dot2 + dot2
-            other.count += self.count
-            # dot2
-            return other
-
-        if isinstance(other, Dot):
-            # dot2 + dash
-            self.char + (self * self.count)
-            # maybe create a character in *other
-            other.char = self.char
-            # dash
-            return other
-
-        # got *dash
-        if isinstance(other, Delimiter):
-            # delimiter
-            self.char + (self * self.count)
-            return other & self
-
-        raise NotImplementedError("Not Itself, Dot or Delimiter!", self)
-
-
 class Delimiter:
-    __slots__ = (
+    """
+    """
+    __slots__: tuple[str, ...] = (
         "word", "sentence",
     )
     def __init__(self):
-        # [char, char, ...]
-        # TODO: instance ?
+        # XXX: [char, char, ...]
         self.word = None
         # XXX: [word, word, ...]
-        self.sentence = []
+        self.sentence = []  # TODO: instance
 
     def __and__(self, other):
-        # delimiter + delimiter -> space -> word
-        # .... + delimiter -> char
-        # if self.word:
-        #     # delimiter + delimiter => [[]]
-        #     self.sentence.append(word)
-        #     self.word.clear()
         if self.word is None:
             self.word = Word()
 
         self.word + other.char
 
         # XXX: clear chars
-        dot / 0
-        dash / 0
+        dot / dot
+        dash / dash
 
-        # self.sentence.append()
-        #     print('!!!', self.sentence)
         return self
 
     def __add__(self, other):
-        # XXX: word is read, so it will go to a *sentence
+        # XXX: delimiter + delimiter -> *sentence
         if isinstance(other, Delimiter):
-            # self -> delimiter1
-            # other -> delimiter2
             self.sentence.append(self.word)
             self.word = None
 
         # NOTE: returning the next *other
-        # *other could be delimiter itself
+        # *other could (and will) be a delimiter itself
         return other
 
 
+class _Symbol:
+    """
+    Dot1[char1] -> Dash1[char1] -> ...
+    """
+    __slots__: tuple[str, ...] = (
+        "symbol",
+        "char",
+    )
+    SYMBOLS: dict[str, int] = {}
+
+    def __init__(self, symbol: str):
+        self.symbol = symbol
+        self.SYMBOLS[symbol] = 1
+        # ...
+        self.char = None
+
+    def __mul__(self, other: int) -> list:
+        """Returns `list[ContinuousSymbol] * self.count`
+        """
+        return [self] * other
+
+    def __truediv__(self, _):
+        """Reset `char` and `count`
+        """
+        self.char = None
+        self.SYMBOLS[self.symbol] = 1
+
+    def __add__(self, other):
+        """Adding `ContinuousSymbol` and `Delimiter`
+
+        Example
+            dot * 3 + dash + delimiter + delimiter
+        """
+        if self.char is None:
+            self.char = Character()
+        if isinstance(other, Delimiter):
+            self.char + (
+                self * self.SYMBOLS[self.symbol]
+            )
+            # XXX: characters -> word
+            other & self
+        elif self is other:
+            self.SYMBOLS[other.symbol] += self.SYMBOLS[self.symbol]
+        else:
+            self.char + (
+                self * self.SYMBOLS[self.symbol]
+            )
+            other.char = self.char
+
+        return other
+
+
+class Dot(_Symbol):
+    """
+    """
+    def __init__(self):
+        super().__init__(symbol=".")
+
+
+class Dash(_Symbol):
+    """
+    """
+    def __init__(self):
+        super().__init__(symbol="-")
+
+
 class Word:
-    __slots__ = (
+    """
+    """
+    __slots__: tuple[str, ...] = (
         "characters",
     )
     def __init__(self):
@@ -200,6 +143,7 @@ class Word:
 
 class Sentence: pass
 
+
 if __name__ == "__main__":
     dot = Dot()
     dash = Dash()
@@ -207,25 +151,14 @@ if __name__ == "__main__":
     # NOTE: single instance for all words / sentence
     delimiter = Delimiter()
 
-    # char = Character()
-    # word = Word()
-    sentence = Sentence()
-
-    # A = Char + Dot + Dash
-    # Word +
-    # A = delimiter + delimiter
-    # A = dot + dash + dash # + delimiter()
-
     #   A                        E
     s = dot + dash + delimiter + dot + delimiter + delimiter
     #   E                 T
     s + dot + delimiter + dash + delimiter + delimiter
 
-    # print('@@@', s)
-    # print(s.word, '::', s.sentence)
     for word in s.sentence:
-        print('!', word)
+        print(word)
         for char in word.characters:
-            print('\t>', char)
+            print('\t', char)
             for sym in char.symbols:
-                print('\t\t>', sym)
+                print('\t\t', sym)

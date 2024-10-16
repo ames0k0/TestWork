@@ -4,40 +4,38 @@ class Dot: pass
 class Dash: pass
 class Delimiter: pass
 class Character: pass
-class Characters: pass
+class Word: pass
+class Sentence: pass
 
-# Character from Dots and Dashes
-# Delimiter as a Code stop \n|\0
+dot = Dot()
+dash = Dash()
+delimiter = Delimiter()
 
-# TODO
-# __mul__
-# __add__
-# __eq__
-# __contains__
-
-# Generate a Character and then use it to check
-# - Save and Load Characters ?!
-```
-
-```python
 #   A                        E
 s = dot + dash + delimiter + dot + delimiter + delimiter
 #   E                 T
 s + dot + delimiter + dash + delimiter + delimiter
+
+for word in s.sentence:
+    print(word)
+    for char in word.characters:
+        print('\t', char)
+        for sym in char.symbols:
+            print('\t\t', sym)
 ```
 
 ```
-! <__main__.Word object at 0x7b5f337abbb0>
-	> <__main__.Character object at 0x7b5f337abfd0>
-		> <__main__.Dot object at 0x7b5f337ae740>
-		> <__main__.Dash object at 0x7b5f337ae780>
-	> <__main__.Character object at 0x7b5f337abb80>
-		> <__main__.Dot object at 0x7b5f337ae740>
-! <__main__.Word object at 0x7b5f337abaf0>
-	> <__main__.Character object at 0x7b5f337abb50>
-		> <__main__.Dot object at 0x7b5f337ae740>
-	> <__main__.Character object at 0x7b5f337abac0>
-		> <__main__.Dash object at 0x7b5f337ae780>
+<__main__.Word object at 0x7570bc9ad1e0>
+	 <__main__.Character object at 0x7570bc9ad630>
+		 <__main__.Dot object at 0x7570bc9d4b90>
+		 <__main__.Dash object at 0x7570bc80f570>
+	 <__main__.Character object at 0x7570bc9acf70>
+		 <__main__.Dot object at 0x7570bc9d4b90>
+<__main__.Word object at 0x7570bc9ac9d0>
+	 <__main__.Character object at 0x7570bc9acbb0>
+		 <__main__.Dot object at 0x7570bc9d4b90>
+	 <__main__.Character object at 0x7570bc9ac910>
+		 <__main__.Dash object at 0x7570bc80f570>
 ```
 
 ## Context
