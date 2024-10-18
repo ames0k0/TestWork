@@ -1,7 +1,7 @@
 # OracleStat
 ```
 # md5sum
-502a33ded3ad5b0b64d68b06d183e1ca  test task oraclestat.txt
+502a33ded3ad5b0b64d68b06d183e1ca  data/TestTask.txt
 ```
 
 ### input
