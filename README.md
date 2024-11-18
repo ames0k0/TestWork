@@ -9,7 +9,8 @@
   - FastAPI<sup>1</sup>,
     SQLAlchemy<sup>3</sup>,
     Pydantic<sup>5</sup>,
-    sqlite3<sup>23</sup>
+    sqlite3<sup>23</sup>,
+    pytest<sup>24</sup>
   - Docker<sup>7</sup>
 - [x] [MVP Project](./WebDevelopment/MVPProject) - `API` **для сохранения резюме, и систему рейтинга**
   - FastAPI<sup>1</sup>,
@@ -119,3 +120,4 @@
 - <sup>21</sup>https://matplotlib.org
 - <sup>22</sup>https://pypi.org/project/PyQt5
 - <sup>23</sup>https://www.sqlite.org
+- <sup>24</sup>https://docs.pytest.org/en/stable
