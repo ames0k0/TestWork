@@ -85,3 +85,6 @@ tree -a -I "__pycache__|__init__.py|.idea|.pytest_cache|data" --dirsfirst
 - <sup>3</sup>https://www.sqlite.org/docs.html
 - <sup>4</sup>https://docs.pydantic.dev/latest
 - <sup>5</sup>https://docs.docker.com
+
+---
+<p align="center"><img src="./data/rest-api.png" /></p>

@@ -2,29 +2,39 @@ import datetime as dt
 from typing_extensions import Annotated
 
 from sqlalchemy.orm import Session
-from fastapi import FastAPI, Body, Depends, HTTPException, status
+from fastapi import FastAPI, Depends, Body, Query, HTTPException, status
 
 from src import utils
 from src.core import config, schemas, dependencies, lifespan
-from src.database import crud, models
+from src.database import crud
 
 
-app = FastAPI(lifespan=lifespan.lifespan)
+app = FastAPI(
+    title="SMIT.studio",
+    summary=
+    "REST API сервис по расчёту стоимости страхование "
+    "в зависимости от типа груза и объявленной стоимости (ОС)",
+    lifespan=lifespan.lifespan,
+
+)
 
 
 @app.post(
     '/',
-    tags=["insurance cost"],
+    tags=["Стоимость страхования"],
     name='Расчёт стоимости страхования',
     response_model=schemas.InsuranceCalculationOut,
 )
 async def insurance_calculation(
-    cargo_type: str,
-    declared_value: int | float,
-    insurance_rate_date: dt.date,
+    cargo_type: str = Query(description="Тип груза"),
+    declared_value: int | float = Query(description="Объявленный стоимость"),
+    insurance_rate_date: dt.date = Query(description="Дата груза"),
     insurance_rate: Annotated[
         schemas.InsuranceRateIn,
-        Body(examples=config.INSURANCE_CALCULATION_EXAMPLES)
+        Body(
+            examples=config.INSURANCE_CALCULATION_EXAMPLES,
+            description="Тариф для расчёта",
+        )
     ] = None,
     db: Session = Depends(dependencies.get_session),
 ) -> dict:
@@ -123,7 +133,7 @@ class InsuranceCalculation:
 
 @app.get(
     '/requests',
-    tags=["insurance cost"],
+    tags=["Стоимость страхования"],
     name='Запросы по расчёту стоимости страхования',
     response_model=list[schemas.InsuranceCalculationRequestOUT],
 )
