@@ -1,13 +1,11 @@
 import datetime as dt
 
-from typing_extensions import Annotated, Self
-from pydantic import BaseModel, ValidationError
-from pydantic.functional_validators import BeforeValidator, AfterValidator
+from typing_extensions import Annotated
+from pydantic import BaseModel
+from pydantic.functional_validators import AfterValidator
 from pydantic.functional_validators import model_validator
 
-from fastapi import HTTPException, status
-
-from src.core import config
+from . import config
 
 
 class InsuranceRate(BaseModel):
@@ -61,7 +59,6 @@ def check_insurance_rate_file(v: None) -> None:
 
 
 # NOTE: `str` - Избегаю конвертации `dt.date` обратно в строку ("2020-06-01")
-
 InsuranceRateIn = Annotated[
     dict[str, list[InsuranceRate]],
     AfterValidator(check_date_format),
@@ -77,3 +74,29 @@ InsuranceRateFromFile = Annotated[
 class InsuranceCalculationOut(BaseModel):
     insurance_rate_date: str
     cost_of_insurance: float
+
+
+class InsuranceCalculationRequestIN:
+    __slots__ = (
+        'cargo_type',
+        'declared_value',
+        'cost_of_insurance',
+        'insurance_rate_date',
+        'insurance_rate',
+        'request_dt',
+        'response_dt',
+    )
+
+
+class InsuranceCalculationRequestOUT(BaseModel):
+    id: int
+
+    cargo_type: str
+    declared_value: float
+    cost_of_insurance: float
+
+    insurance_rate_date: str
+    insurance_rate: float
+
+    request_dt: dt.datetime
+    response_dt: dt.datetime
