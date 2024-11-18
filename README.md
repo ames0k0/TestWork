@@ -5,6 +5,12 @@
 ## Web Development
 
 ### Test Tasks
+- [x] [SMIT.studio](./WebDevelopment/SMIT.studio) - `REST API` **сервис по расчёту стоимости страхование**
+  - FastAPI<sup>1</sup>,
+    SQLAlchemy<sup>3</sup>,
+    Pydantic<sup>5</sup>,
+    sqlite3<sup>23</sup>
+  - Docker<sup>7</sup>
 - [x] [MVP Project](./WebDevelopment/MVPProject) - `API` **для сохранения резюме, и систему рейтинга**
   - FastAPI<sup>1</sup>,
     FastAPI Pagination<sup>2</sup>,
@@ -112,3 +118,4 @@
 - <sup>20</sup>https://opencv.org
 - <sup>21</sup>https://matplotlib.org
 - <sup>22</sup>https://pypi.org/project/PyQt5
+- <sup>23</sup>https://www.sqlite.org
