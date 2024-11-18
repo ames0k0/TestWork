@@ -1,9 +1,9 @@
 from pathlib import Path
 
 
-DATABASE_FILEPATH = "sqlite:///./data/sqlite3.db"
-
 STATIC_DIRECTORY = Path("src") / "static"
+DATABASE_FILEPATH = STATIC_DIRECTORY / "sqlite3.db"
+SQLALCHEMY_DATABASE_URL = "sqlite:///" + str(DATABASE_FILEPATH)
 
 INSURANCE_RATE_FILEPATH = STATIC_DIRECTORY / "insurance_rate.json"
 INSURANCE_RATE_DATE_FORMAT = "%Y-%m-%d"

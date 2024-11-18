@@ -14,13 +14,14 @@ app = FastAPI(lifespan=lifespan.lifespan)
 
 @app.post(
     '/',
-    tags=["insurance"],
+    tags=["insurance cost"],
     name='Расчёт стоимости страхования',
     response_model=schemas.InsuranceCalculationOut,
 )
 async def insurance_calculation(
     cargo_type: str,
     declared_value: int | float,
+    insurance_rate_date: dt.date,
     insurance_rate: Annotated[
         schemas.InsuranceRateIn,
         Body(examples=config.INSURANCE_CALCULATION_EXAMPLES)
@@ -30,7 +31,15 @@ async def insurance_calculation(
     """Расчёт стоимости страхования
     """
     icr = schemas.InsuranceCalculationRequestIN()
+
+    insurance_rate_date = insurance_rate_date.strftime(
+        config.INSURANCE_RATE_DATE_FORMAT
+    )
+
     icr.request_dt = dt.datetime.now()
+    icr.cargo_type = cargo_type
+    icr.declared_value = declared_value
+    icr.insurance_rate_date = insurance_rate_date
 
     if insurance_rate is None:
         if not config.INSURANCE_RATE_FILEPATH.exists():
@@ -41,8 +50,15 @@ async def insurance_calculation(
             )
         insurance_rate = await utils.load_insurance_rate_from_file()
     else:
-        insurance_rate = await (
-            utils.save_insurance_rate_to_file(insurance_rate)
+        await utils.save_insurance_rate_to_file(insurance_rate)
+
+    error_msg, insurance_rate = await utils.get_current_rate(
+        insurance_rate, insurance_rate_date
+    )
+    if error_msg:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=error_msg
         )
 
     result = InsuranceCalculation(
@@ -53,8 +69,6 @@ async def insurance_calculation(
         insurance_rate=insurance_rate
     )
 
-    icr.cargo_type = cargo_type
-    icr.declared_value = declared_value
     icr.response_dt = dt.datetime.now()
 
     crud.InsuranceCalculationRequest.add(db=db, data=icr)
@@ -109,7 +123,7 @@ class InsuranceCalculation:
 
 @app.get(
     '/requests',
-    tags=["insurance"],
+    tags=["insurance cost"],
     name='Запросы по расчёту стоимости страхования',
     response_model=list[schemas.InsuranceCalculationRequestOUT],
 )
@@ -117,6 +131,6 @@ async def insurance_calculation_requests(
     limit: int,
     db: Session = Depends(dependencies.get_session),
 ) -> list:
-    """Расчёт стоимости страхования
+    """Запросы по расчёту стоимости страхования
     """
     return crud.InsuranceCalculationRequest.load_least_n(db=db, limit=limit)

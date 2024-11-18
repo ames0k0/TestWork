@@ -15,7 +15,8 @@ def initialize():
 
     if engine is None:
         engine = create_engine(
-            config.DATABASE_FILEPATH, connect_args={"check_same_thread": False}
+            config.SQLALCHEMY_DATABASE_URL,
+            connect_args={"check_same_thread": False},
         )
 
     if session is None:

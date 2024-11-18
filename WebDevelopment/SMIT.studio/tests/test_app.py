@@ -1,6 +1,7 @@
 import os
 import json
 
+import pytest
 from fastapi import status
 from fastapi.testclient import TestClient
 
@@ -22,7 +23,6 @@ def test_insurance_calculation_require_missing_insurance_rate():
 
     в случае если нет файла с тарифом
     """
-    # with pytest.raises()
     response = client.post(
         '/',
         params={
@@ -60,6 +60,7 @@ def test_insurance_calculation_ignore_missing_insurance_rate():
         params={
             "cargo_type": "Glass",
             "declared_value": "33.45",
+            "insurance_rate_date": "2020-06-01",
         },
     )
     assert response.status_code == status.HTTP_200_OK
@@ -77,6 +78,7 @@ def test_insurance_calculation_require_default_cargo_type_for_insurance_rate():
         params={
             "cargo_type": "Glass",
             "declared_value": "33.45",
+            "insurance_rate_date": "2020-06-01",
         },
         json={
             "2020-06-01": [
@@ -100,6 +102,7 @@ def test_insurance_calculation_save_insurance_rate_to_file():
         params={
             "cargo_type": "Glass",
             "declared_value": "33.45",
+            "insurance_rate_date": "2020-06-01",
         },
         json={
             "2020-06-01": [
@@ -131,6 +134,7 @@ def test_insurance_calculation_update_insurance_rate_file():
         params={
             "cargo_type": "Glass",
             "declared_value": "33.45",
+            "insurance_rate_date": "2020-06-01",
         },
         json={
             "2020-06-01": [
