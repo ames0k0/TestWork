@@ -3,13 +3,14 @@
 REST API сервис по расчёту стоимости страхование<br />
 в зависимости от типа груза и объявленной стоимости (ОС)
 
-### Развёртывание проекта в docker
+### Развёртывание проекта с помощью Docker
 <details>
 <summary>Зависимости</summary>
 <pre>
 docker --version    # Docker version 27.3.1, build ce12230
 poetry -V           # Poetry (version 1.8.3)
 python -V           # Python 3.11.6
+pytest -V           # pytest 8.3.3
 </pre>
 </details>
 
@@ -23,6 +24,7 @@ docker run -p 8000:8000 -it insurance-cost-rest-api
 
 ### Запуск тестов проекта
 ```bash
+poetry install --with test
 poetry run pytest
 ```
 - Тестов нужно запускать до работы с проектом (не разобрался с `conftest`)
@@ -69,22 +71,24 @@ tree -a -I "__pycache__|__init__.py|.idea|.pytest_cache|data" --dirsfirst
   <li>SQLAlchemy<sup>2</sup></li>
   <li>sqlite3<sup>3</sup></li>
   <li>Pydantic<sup>4</sup></li>
+  <li>pytest<sup>5</sup></li>
 </ul>
 </details>
 
 <details>
 <summary>Использованные технологии для контейнеризации и изолированного запуска</summary>
 <ul>
-  <li>Docker<sup>5</sup></li>
+  <li>Docker<sup>6</sup></li>
 </ul>
 </details>
 
 #### Ссылки по технологиям
 - <sup>1</sup>https://fastapi.tiangolo.com
 - <sup>2</sup>https://www.sqlalchemy.org
-- <sup>3</sup>https://www.sqlite.org/docs.html
+- <sup>3</sup>https://www.sqlite.org
 - <sup>4</sup>https://docs.pydantic.dev/latest
-- <sup>5</sup>https://docs.docker.com
+- <sup>5</sup>https://docs.pytest.org/en/stable
+- <sup>6</sup>https://docs.docker.com
 
 ---
 <p align="center"><img src="./data/rest-api.png" /></p>
