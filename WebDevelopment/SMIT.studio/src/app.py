@@ -11,9 +11,8 @@ from src.database import crud
 
 app = FastAPI(
     title="SMIT.studio",
-    summary=
-    "REST API сервис по расчёту стоимости страхование "
-    "в зависимости от типа груза и объявленной стоимости (ОС)",
+    summary="REST API сервис по расчёту стоимости страхование "
+            "в зависимости от типа груза и объявленной стоимости (ОС)",
     lifespan=lifespan.lifespan,
 
 )
