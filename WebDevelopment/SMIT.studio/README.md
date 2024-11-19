@@ -31,6 +31,49 @@ poetry run pytest
   - Связано с тем, что есть тест на проверку файла с тарифом
   - Плюс, для теста и проекта используется одна база
 
+### Замечание
+- В базе хранятся только истории запросов с расчётом
+  - Не разобрался какие "Данные должны храниться в базе данных"
+  - Подумал что это может быть тариф, но уже после "выполнение" ТЗ
+
+<details>
+<summary>Пример "истории запросов" (после запуска тестов)</summary>
+<pre>
+[
+  {
+    "id": 3,
+    "cargo_type": "Glass",
+    "declared_value": 33.45,
+    "cost_of_insurance": 1.338,
+    "insurance_rate_date": "2020-06-01",
+    "insurance_rate": 0.04,
+    "request_dt": "2024-11-19T10:20:27.479731",
+    "response_dt": "2024-11-19T10:20:27.479876"
+  },
+  {
+    "id": 2,
+    "cargo_type": "Glass",
+    "declared_value": 33.45,
+    "cost_of_insurance": 1.338,
+    "insurance_rate_date": "2020-06-01",
+    "insurance_rate": 0.04,
+    "request_dt": "2024-11-19T10:20:27.474687",
+    "response_dt": "2024-11-19T10:20:27.474782"
+  },
+  {
+    "id": 1,
+    "cargo_type": "Glass",
+    "declared_value": 33.45,
+    "cost_of_insurance": 0.335,
+    "insurance_rate_date": "2020-06-01",
+    "insurance_rate": 0.01,
+    "request_dt": "2024-11-19T10:20:27.464233",
+    "response_dt": "2024-11-19T10:20:27.464301"
+  }
+]
+</pre>
+</details>
+
 ---
 
 <details>

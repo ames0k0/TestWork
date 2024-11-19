@@ -28,7 +28,7 @@ app = FastAPI(
 async def insurance_calculation(
     cargo_type: str = Query(description="Тип груза"),
     declared_value: int | float = Query(description="Объявленный стоимость"),
-    insurance_rate_date: dt.date = Query(description="Дата груза"),
+    insurance_rate_date: dt.date = Query(description="Дата страхового тарифа"),
     insurance_rate: Annotated[
         schemas.InsuranceRateIn,
         Body(
