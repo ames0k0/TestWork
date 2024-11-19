@@ -22,6 +22,12 @@ docker run -p 8000:8000 -it insurance-cost-rest-api
   - `POST /` - Расчёт стоимости страхования
   - `GET /requests` - Запросы по расчёту стоимости страхования
 
+Запустить локально
+```bash
+poetry install
+poetry run fastapi run src/app.py
+```
+
 ### Запуск тестов проекта
 ```bash
 poetry install --with test
