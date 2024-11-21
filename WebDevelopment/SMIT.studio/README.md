@@ -20,7 +20,8 @@ docker compose up --build
 
 - **Swagger UI** будет доступно по ссылке: [http://0.0.0.0:8000/docs](http://0.0.0.0:8000/docs)
   - `POST /` - Расчёт стоимости страхования
-  - `GET /requests` - Запросы по расчёту стоимости страхования
+  - `GET /tariff-get` - Запросы на получение тарифов
+  - `DELETE /tariff-delete` - Запросы на удаление тарифа
 
 ### Запуск тестов проекта
 ```bash
@@ -28,8 +29,7 @@ poetry install --with test
 poetry run pytest
 ```
 - Тестов нужно запускать до работы с проектом (не разобрался с `conftest`)
-  - Связано с тем, что есть тест на проверку файла с тарифом
-  - Плюс, для теста и проекта используется одна база
+  - Связано с тем, что база одна, и есть тест на проверку (и создание) тарифов
 
 ### Замечание
 - Нет UI для Kafka - не посмотреть на логи (`producer.send` работает)
@@ -95,3 +95,4 @@ tree -a -I "__pycache__|__init__.py|.idea|.pytest_cache|data" --dirsfirst
 
 ---
 <p align="center"><img src="./data/rest-api.png" /></p>
+<p align="center"><img src="./data/rest-api-ext.png" /></p>

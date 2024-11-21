@@ -73,28 +73,6 @@ async def insurance_calculation(
     }
 
 
-@app.delete(
-    '/tariff-delete',
-    tags=["Тариф"],
-    name='Удаление тарифа',
-)
-async def delete_tariff(
-    tariff_date: dt.date = Query(description="Дата Тарифа"),
-    db: Session = Depends(dependencies.get_session),
-) -> str:
-    """Расчёт стоимости страхования
-    """
-    UserEventsLogger().log(
-        user_id=config.DEFAULT_USER_ID,
-        event_topic=TopicEnum.TARIFF.value,
-        event_message=f"Запрос на удаление тарифа по дате: {tariff_date}",
-        event_timestamp=dt.datetime.now().timestamp(),
-    )
-    crud.Tariff.delete_by_date(db=db, tariff_date=tariff_date)
-
-    return 'OK'
-
-
 @app.get(
     '/tariff-get',
     tags=["Тариф"],
@@ -108,3 +86,26 @@ async def delete_tariff(
     """Получение тарифов по дате (опционально)
     """
     return crud.Tariff.get_by_date(db=db, tariff_date=tariff_date)
+
+
+@app.delete(
+    '/tariff-delete',
+    tags=["Тариф"],
+    name='Удаление тарифа',
+)
+async def delete_tariff(
+    tariff_date: dt.date = Query(description="Дата Тарифа"),
+    db: Session = Depends(dependencies.get_session),
+) -> str:
+    """Удаление тарифа по дате
+    """
+    UserEventsLogger().log(
+        user_id=config.DEFAULT_USER_ID,
+        event_topic=TopicEnum.TARIFF.value,
+        event_message=f"Запрос на удаление тарифа по дате: {tariff_date}",
+        event_timestamp=dt.datetime.now().timestamp(),
+    )
+    crud.Tariff.delete_by_date(db=db, tariff_date=tariff_date)
+
+    return 'OK'
+
