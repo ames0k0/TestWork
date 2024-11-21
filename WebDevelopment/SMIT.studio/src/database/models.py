@@ -1,24 +1,25 @@
 import datetime as dt
+from typing import Optional
 
-from sqlalchemy.orm import Mapped
-from sqlalchemy.orm import mapped_column
+from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy import Column, DateTime, func
 
 from src.database.app import Base
 
 
-class InsuranceCalculationRequest(Base):
-    """Таблица истории запросов и ответов
+class Tariff(Base):
+    """Таблица тарифов
     """
-    __tablename__ = "insurance_calculation_request"
+    __tablename__ = "tariff"
 
     id: Mapped[int] = mapped_column(primary_key=True)
 
+    date: Mapped[str]
     cargo_type: Mapped[str]
-    declared_value: Mapped[float]
-    cost_of_insurance: Mapped[float]
+    rate: Mapped[float]
 
-    insurance_rate_date: Mapped[str]
-    insurance_rate: Mapped[float]
+    # Settings
+    created_at: Mapped[dt.datetime] = Column(
+        DateTime, server_default=func.now(),
+    )
 
-    request_dt: Mapped[dt.datetime]
-    response_dt: Mapped[dt.datetime]

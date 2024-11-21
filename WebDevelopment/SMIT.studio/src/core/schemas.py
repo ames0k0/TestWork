@@ -14,20 +14,22 @@ class InsuranceRate(BaseModel):
     cargo_type: str
     rate: float
 
-    @model_validator(mode='after')
-    def dumping_the_model(self):
-        return self.model_dump()
-
 
 def check_date_format(v: dict) -> dict:
     """Проверка на формат дат для тарифов
     """
+    dates = set()
+
     for key in v.keys():
         try:
-            dt.datetime.strptime(
+            date = dt.datetime.strptime(
                 key,
                 config.INSURANCE_RATE_DATE_FORMAT,
             )
+            if date in dates:
+                raise ValueError(f"Дублирован даты тарифа: {key}")
+
+            dates.add(date)
         except ValueError:
             raise ValueError("Необходимо передать тариф с актуальной датой")
 
@@ -39,7 +41,7 @@ def check_missing_default_cargo_type(v: dict) -> dict:
     """
     for values in v.values():
         for value in values:
-            if value["cargo_type"].lower() == config.DEFAULT_CARGO_TYPE:
+            if value.cargo_type.title() == config.DEFAULT_CARGO_TYPE:
                 break
         else:
             raise ValueError(
@@ -49,15 +51,6 @@ def check_missing_default_cargo_type(v: dict) -> dict:
     return v
 
 
-def check_insurance_rate_file(v: None) -> None:
-    if config.INSURANCE_RATE_FILEPATH.exists():
-        return
-
-    raise FileNotFoundError(
-        "Отсутствует файл с тарифом. Необходимо передать актуальный тариф!"
-    )
-
-
 # NOTE: `str` - Избегаю конвертации `dt.date` обратно в строку ("2020-06-01")
 InsuranceRateIn = Annotated[
     dict[str, list[InsuranceRate]],
@@ -65,38 +58,13 @@ InsuranceRateIn = Annotated[
     AfterValidator(check_missing_default_cargo_type),
 ]
 
-InsuranceRateFromFile = Annotated[
-    None,
-    AfterValidator(check_insurance_rate_file),
-]
+
+class TariffOUT(BaseModel):
+    date: str
+    cargo_type: str
+    rate: float
 
 
 class InsuranceCalculationOut(BaseModel):
-    insurance_rate_date: str
     cost_of_insurance: float
-
-
-class InsuranceCalculationRequestIN:
-    __slots__ = (
-        'cargo_type',
-        'declared_value',
-        'cost_of_insurance',
-        'insurance_rate_date',
-        'insurance_rate',
-        'request_dt',
-        'response_dt',
-    )
-
-
-class InsuranceCalculationRequestOUT(BaseModel):
-    id: int
-
-    cargo_type: str
-    declared_value: float
-    cost_of_insurance: float
-
-    insurance_rate_date: str
-    insurance_rate: float
-
-    request_dt: dt.datetime
-    response_dt: dt.datetime
+    tariff: TariffOUT
