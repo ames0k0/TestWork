@@ -1,12 +1,13 @@
 import datetime as dt
+from typing import Sequence
 from typing_extensions import Annotated
 
 from sqlalchemy.orm import Session
 from fastapi import FastAPI, Depends, Body, Query, HTTPException, status
 
-from src import utils
 from src.core import config, schemas, dependencies, lifespan
 from src.database import crud
+from src.logging.kafka import UserEventsLogger, TopicEnum
 
 
 app = FastAPI(
@@ -39,107 +40,72 @@ async def insurance_calculation(
 ) -> dict:
     """Расчёт стоимости страхования
     """
-    icr = schemas.InsuranceCalculationRequestIN()
+    if insurance_rate:
+        UserEventsLogger().log(
+            user_id=config.DEFAULT_USER_ID,
+            event_topic=TopicEnum.TARIFF.value,
+            event_message='Загружен тариф через API',
+            event_timestamp=dt.datetime.now().timestamp(),
+        )
+        crud.Tariff.create(db, insurance_rate)
 
-    insurance_rate_date = insurance_rate_date.strftime(
-        config.INSURANCE_RATE_DATE_FORMAT
+    tariff = crud.Tariff.get_by_date_and_cargo_type(
+        db,
+        insurance_rate_date=insurance_rate_date,
+        cargo_type=cargo_type,
     )
-
-    icr.request_dt = dt.datetime.now()
-    icr.cargo_type = cargo_type
-    icr.declared_value = declared_value
-    icr.insurance_rate_date = insurance_rate_date
-
-    if insurance_rate is None:
-        if not config.INSURANCE_RATE_FILEPATH.exists():
-            raise HTTPException(
-                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-                detail="Отсутствует файл с тарифом. "
-                       "Необходимо передать актуальный тариф!"
-            )
-        insurance_rate = await utils.load_insurance_rate_from_file()
-    else:
-        await utils.save_insurance_rate_to_file(insurance_rate)
-
-    error_msg, insurance_rate = await utils.get_current_rate(
-        insurance_rate, insurance_rate_date
-    )
-    if error_msg:
+    if not tariff:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail=error_msg
+            detail="Актуальный тариф не загружен!"
         )
 
-    result = InsuranceCalculation(
-        icr=icr,
-        cargo_type=cargo_type,
-        declared_value=declared_value
-    ).calculate(
-        insurance_rate=insurance_rate
+    # NOTE: Округление до тысячных `.3f`
+    cost_of_insurance = round(
+        declared_value * tariff.rate,
+        3,
     )
 
-    icr.response_dt = dt.datetime.now()
-
-    crud.InsuranceCalculationRequest.add(db=db, data=icr)
-
-    return result
-
-
-class InsuranceCalculation:
-    """Расчёт стоимости страхования
-    """
-    def __init__(
-        self,
-        icr: schemas.InsuranceCalculationRequestIN,
-        cargo_type: str, declared_value: int | float,
-    ):
-        self.icr = icr
-        self.cargo_type = cargo_type
-        self.declared_value = declared_value
-
-    def calculate(self, insurance_rate: dict) -> dict:
-        """Поиск тарифа и расчёт
-        """
-        rate_date = None
-        rate = None
-        default_rate = None
-
-        for date, values, in insurance_rate.items():
-            rate_date = date
-            for value in values:
-                if value["cargo_type"].lower() == config.DEFAULT_CARGO_TYPE:
-                    default_rate = value["rate"]
-                    continue
-                if value["cargo_type"] == self.cargo_type:
-                    rate = value["rate"]
-                    break
-
-        if rate is None:
-            rate = default_rate
-
-        # NOTE: Округление до тысячных `.3f`
-        cost_of_insurance = round(self.declared_value * rate, 3)
-
-        self.icr.cost_of_insurance = cost_of_insurance
-        self.icr.insurance_rate_date = rate_date
-        self.icr.insurance_rate = rate
-
-        return {
-            "insurance_rate_date": rate_date,
-            "cost_of_insurance": cost_of_insurance,
-        }
+    # NOTE: Добавил тариф
+    return {
+        "cost_of_insurance": cost_of_insurance,
+        "tariff": tariff,
+    }
 
 
 @app.get(
-    '/requests',
-    tags=["Стоимость страхования"],
-    name='Запросы по расчёту стоимости страхования',
-    response_model=list[schemas.InsuranceCalculationRequestOUT],
+    '/tariff-get',
+    tags=["Тариф"],
+    name='Получение тарифов',
+    response_model=Sequence[schemas.TariffOUT],
 )
-async def insurance_calculation_requests(
-    limit: int,
+async def delete_tariff(
+    tariff_date: dt.date | None = Query(None, description="Дата Тарифа"),
     db: Session = Depends(dependencies.get_session),
-) -> list:
-    """Запросы по расчёту стоимости страхования
+) -> Sequence[schemas.TariffOUT]:
+    """Получение тарифов по дате (опционально)
     """
-    return crud.InsuranceCalculationRequest.load_least_n(db=db, limit=limit)
+    return crud.Tariff.get_by_date(db=db, tariff_date=tariff_date)
+
+
+@app.delete(
+    '/tariff-delete',
+    tags=["Тариф"],
+    name='Удаление тарифа',
+)
+async def delete_tariff(
+    tariff_date: dt.date = Query(description="Дата Тарифа"),
+    db: Session = Depends(dependencies.get_session),
+) -> str:
+    """Удаление тарифа по дате
+    """
+    UserEventsLogger().log(
+        user_id=config.DEFAULT_USER_ID,
+        event_topic=TopicEnum.TARIFF.value,
+        event_message=f"Запрос на удаление тарифа по дате: {tariff_date}",
+        event_timestamp=dt.datetime.now().timestamp(),
+    )
+    crud.Tariff.delete_by_date(db=db, tariff_date=tariff_date)
+
+    return 'OK'
+
