@@ -7,6 +7,7 @@ from fastapi import FastAPI, Depends, Body, Query, HTTPException, status
 
 from src.core import config, schemas, dependencies, lifespan
 from src.database import crud
+from src.logging.kafka import UserEventsLogger, TopicEnum
 
 
 app = FastAPI(
@@ -40,6 +41,12 @@ async def insurance_calculation(
     """Расчёт стоимости страхования
     """
     if insurance_rate:
+        UserEventsLogger().log(
+            user_id=config.DEFAULT_USER_ID,
+            event_topic=TopicEnum.TARIFF.value,
+            event_message='Загружен тариф через API',
+            event_timestamp=dt.datetime.now().timestamp(),
+        )
         crud.Tariff.create(db, insurance_rate)
 
     tariff = crud.Tariff.get_by_date_and_cargo_type(
@@ -77,6 +84,12 @@ async def delete_tariff(
 ) -> str:
     """Расчёт стоимости страхования
     """
+    UserEventsLogger().log(
+        user_id=config.DEFAULT_USER_ID,
+        event_topic=TopicEnum.TARIFF.value,
+        event_message=f"Запрос на удаление тарифа по дате: {tariff_date}",
+        event_timestamp=dt.datetime.now().timestamp(),
+    )
     crud.Tariff.delete_by_date(db=db, tariff_date=tariff_date)
 
     return 'OK'

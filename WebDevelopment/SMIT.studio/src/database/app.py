@@ -26,18 +26,14 @@ def initialize():
 
 
 def get_engine():
-    if engine is not None:
-        return engine
-
-    initialize()
+    if engine is None:
+        initialize()
 
     return engine
 
 
 def get_session():
-    if session is not None:
-        return session
-
-    initialize()
+    if session is None:
+        initialize()
 
     return session
