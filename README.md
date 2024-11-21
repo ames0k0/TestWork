@@ -10,8 +10,10 @@
     SQLAlchemy<sup>3</sup>,
     Pydantic<sup>5</sup>,
     sqlite3<sup>23</sup>,
-    pytest<sup>24</sup>
-  - Docker<sup>7</sup>
+    pytest<sup>24</sup>,
+    Apache Kafka<sup>25</sup>
+  - Docker<sup>7</sup>,
+    Docker Compose<sup>8</sup>
 - [x] [MVP Project](./WebDevelopment/MVPProject) - `API` **для сохранения резюме, и систему рейтинга**
   - FastAPI<sup>1</sup>,
     FastAPI Pagination<sup>2</sup>,
@@ -121,3 +123,4 @@
 - <sup>22</sup>https://pypi.org/project/PyQt5
 - <sup>23</sup>https://www.sqlite.org
 - <sup>24</sup>https://docs.pytest.org/en/stable
+- <sup>25</sup>https://kafka.apache.org
