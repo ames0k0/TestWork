@@ -2,19 +2,19 @@ from kafka import KafkaProducer
 
 from src.core import config
 
-producer = None
+
+__all__ = (
+    'Kafka',
+)
 
 
-def initialize():
-    global producer
+class Kafka:
+    producer = None
 
-    producer = KafkaProducer(
-        bootstrap_servers=config.KAFKA_PRODUCER_BOOTSTRAP_SERVERS,
-    )
-
-
-def get_producer():
-    if producer is None:
-        initialize()
-
-    return producer
+    @classmethod
+    def initialize(cls):
+        """Initialize KafkaProducer
+        """
+        cls.producer = KafkaProducer(
+            bootstrap_servers=config.KAFKA_PRODUCER_BOOTSTRAP_SERVERS,
+        )

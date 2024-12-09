@@ -3,7 +3,6 @@ import datetime as dt
 from typing_extensions import Annotated
 from pydantic import BaseModel
 from pydantic.functional_validators import AfterValidator
-from pydantic.functional_validators import model_validator
 
 from . import config
 

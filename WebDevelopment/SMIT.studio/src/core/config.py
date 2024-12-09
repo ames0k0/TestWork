@@ -2,8 +2,10 @@ from pathlib import Path
 
 
 STATIC_DIRECTORY = Path("src") / "static"
+
 DATABASE_FILEPATH = STATIC_DIRECTORY / "sqlite3.db"
 SQLALCHEMY_DATABASE_URL = "sqlite:///" + str(DATABASE_FILEPATH)
+
 KAFKA_PRODUCER_BOOTSTRAP_SERVERS = "localhost:9092"
 
 DEFAULT_USER_ID = 1

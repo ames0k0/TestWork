@@ -1,8 +1,7 @@
 import datetime as dt
-from typing import Optional
 
 from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import Column, DateTime, func
+from sqlalchemy import DateTime, func
 
 from src.database.app import Base
 
@@ -19,7 +18,7 @@ class Tariff(Base):
     rate: Mapped[float]
 
     # Settings
-    created_at: Mapped[dt.datetime] = Column(
+    created_at: Mapped[dt.datetime] = mapped_column(
         DateTime, server_default=func.now(),
     )
 

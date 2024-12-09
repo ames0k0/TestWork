@@ -1,22 +1,7 @@
-import os
-
-import pytest
-
-from src.core import config
+from src.database.app import SQL
+from src.logging.app import Kafka
 
 
-@pytest.fixture(scope="module")
-def clean_up_files(_):
-    fps = (
-        config.INSURANCE_RATE_FILEPATH,
-        config.DATABASE_FILEPATH
-    )
-    for fp in fps:
-        if fp.exists():
-            os.remove(fp)
-
-    yield
-
-    for fp in fps:
-        if fp.exists():
-            os.remove(fp)
+def pytest_configure(config):
+  SQL.initialize()
+  Kafka.initialize()

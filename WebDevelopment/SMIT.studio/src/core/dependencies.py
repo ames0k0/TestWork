@@ -1,8 +1,8 @@
-from src.database.app import get_session
+from src.database.app import SQL
 
 
-def get_sqldb():
-    db = get_session()
+def sql_session():
+    db = SQL.session()
     try:
         yield db
     finally:

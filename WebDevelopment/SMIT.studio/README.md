@@ -25,10 +25,12 @@ docker compose up --build
 
 ### Запуск тестов проекта
 ```bash
+docker compose run broker
 poetry install --with test
+poetry run fastapi run src/app.py
 poetry run pytest
 ```
-- Тестов нужно запускать до работы с проектом (не разобрался с `conftest`)
+- Тестов нужно запускать до работы с проектом
   - Связано с тем, что база одна, и есть тест на проверку (и создание) тарифов
 
 ### Замечание
