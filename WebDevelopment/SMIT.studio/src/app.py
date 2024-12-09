@@ -15,7 +15,6 @@ app = FastAPI(
     summary="REST API сервис по расчёту стоимости страхование "
             "в зависимости от типа груза и объявленной стоимости (ОС)",
     lifespan=lifespan.lifespan,
-
 )
 
 
@@ -36,12 +35,12 @@ async def insurance_calculation(
             description="Тариф для расчёта",
         )
     ] = None,
-    db: Session = Depends(dependencies.get_session),
+    db: Session = Depends(dependencies.sql_session),
 ) -> dict:
     """Расчёт стоимости страхования
     """
     if insurance_rate:
-        UserEventsLogger().log(
+        UserEventsLogger.log_to_kafka(
             user_id=config.DEFAULT_USER_ID,
             event_topic=TopicEnum.TARIFF.value,
             event_message='Загружен тариф через API',
@@ -81,7 +80,7 @@ async def insurance_calculation(
 )
 async def delete_tariff(
     tariff_date: dt.date | None = Query(None, description="Дата Тарифа"),
-    db: Session = Depends(dependencies.get_session),
+    db: Session = Depends(dependencies.sql_session),
 ) -> Sequence[schemas.TariffOUT]:
     """Получение тарифов по дате (опционально)
     """
@@ -95,11 +94,11 @@ async def delete_tariff(
 )
 async def delete_tariff(
     tariff_date: dt.date = Query(description="Дата Тарифа"),
-    db: Session = Depends(dependencies.get_session),
+    db: Session = Depends(dependencies.sql_session),
 ) -> str:
     """Удаление тарифа по дате
     """
-    UserEventsLogger().log(
+    UserEventsLogger.log_to_kafka(
         user_id=config.DEFAULT_USER_ID,
         event_topic=TopicEnum.TARIFF.value,
         event_message=f"Запрос на удаление тарифа по дате: {tariff_date}",
@@ -108,4 +107,3 @@ async def delete_tariff(
     crud.Tariff.delete_by_date(db=db, tariff_date=tariff_date)
 
     return 'OK'
-
