@@ -5,7 +5,7 @@
 ## Web Development
 
 ### Test Tasks
-- [x] [SMIT.studio](./WebDevelopment/SMIT.studio) - `RESTful API` - **Сервис по расчёту стоимости страхование**
+- [x] [SMIT.studio](./WebDevelopment/SMIT.studio) - **Сервис по расчёту стоимости страхование**
   - FastAPI<sup>1</sup>,
     SQLAlchemy<sup>3</sup>,
     Pydantic<sup>5</sup>,
@@ -14,9 +14,9 @@
     Apache Kafka<sup>25</sup>
   - Docker<sup>7</sup>,
     Docker Compose<sup>8</sup>
-- [ ] [CREOS.Play](./WebDevelopment/CREOS-Play) - `RESTful API`, `Telegram Bot` - **Сервис прогноз погоды**
-- [ ] [MindFusion](./WebDevelopment/MindFusion) - `Fullstack`, `Telegram Bot` - **Сервис обмена мгновенными сообщениями**
-- [x] [MVP Project](./WebDevelopment/MVPProject) - `RESTful API` **Сервис для сохранения резюме, и систему рейтинга**
+- [ ] [CREOS.Play](./WebDevelopment/CREOS-Play) - **Сервис прогноз погоды**
+- [ ] [MindFusion](./WebDevelopment/MindFusion) - **Сервис обмена мгновенными сообщениями**
+- [x] [MVP Project](./WebDevelopment/MVPProject) - **Сервис для сохранения резюме, и систему рейтинга**
   - FastAPI<sup>1</sup>,
     FastAPI Pagination<sup>2</sup>,
     SQLAlchemy<sup>3</sup>,
@@ -25,7 +25,7 @@
   - Uvicorn<sup>6</sup>,
     Docker<sup>7</sup>,
     Docker Compose<sup>8</sup>
-- [x] [SkyTrack](./WebDevelopment/SkyTrack) - `RESTful API` **Сервис для добавления заказа и просмотр истории заказов**
+- [x] [SkyTrack](./WebDevelopment/SkyTrack) - **Сервис для добавления заказа и просмотр истории заказов**
   - FastAPI<sup>1</sup>,
     SQLAlchemy<sup>3</sup>,
     Pydantic<sup>5</sup>
