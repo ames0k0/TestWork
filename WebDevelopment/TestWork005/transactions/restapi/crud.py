@@ -64,7 +64,7 @@ class Redis:
 
     @staticmethod
     def get(api_key: str) -> dict:
-        """Returns the transactions statistics from the cache or empty schema
+        """Returns the transactions analysis from the cache or empty schema
         """
         stats = connections.Redis.ins.get(
             name=Redis.CACHE_NAME.format(
@@ -78,7 +78,7 @@ class Redis:
 
     @staticmethod
     def set(api_key: str, stats: dict):
-        """Setting the transactions statistics
+        """Setting the transactions analysis
         """
         connections.Redis.ins.set(
             name=Redis.CACHE_NAME.format(
@@ -89,18 +89,18 @@ class Redis:
 
     @staticmethod
     def delete(*, api_key: str):
-        """Deletes the transactions statistics
+        """Deletes the transactions analysis
         """
         connections.Redis.ins.delete(api_key)
 
 
 class Celery:
     @staticmethod
-    def update_transaction_statistics(*, api_key: str) -> str:
-        """Creates a task `update_transaction_statistics`
+    def update_transaction_analysis(*, api_key: str) -> str:
+        """Creates a task `update_transaction_analysis`
         """
         return connections.Celery.ins.send_task(
-            name="update_transaction_statistics",
+            name="update_transaction_analysis",
             args=(
                 api_key,
             )
