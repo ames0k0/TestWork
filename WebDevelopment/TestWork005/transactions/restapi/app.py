@@ -25,10 +25,10 @@ app = FastAPI(
 @app.post(
     '/transactions',
     summary='Загрузка транзакции',
-    response_model=schemas.TaskStatsUpdateInfo,
+    response_model=schemas.PostTransactionsOut,
 )
 async def post_transactions(
-    data: schemas.TransactionsCreateIn,
+    data: schemas.PostTransactionsIn,
     api_key: Annotated[str, Header(alias="ApiKey")],
     session: Annotated[
         Session,
@@ -70,6 +70,7 @@ async def delete_transactions(
 @app.get(
     '/statistics',
     summary='Получение статистики по транзакциям',
+    response_model=schemas.GetStatisticsOut,
 )
 async def get_statistics(
     api_key: Annotated[str, Header(alias="ApiKey")],

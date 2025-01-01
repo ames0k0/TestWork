@@ -51,7 +51,7 @@ def update_transactions_analysis(*, api_key: str) -> None:
         api_key=api_key,
         transactions_analysis={
             "total_transactions": len(transactions),
-            "average_transactions_amount": round(
+            "average_transaction_amount": round(
                 total_transactions_amount / len(transactions),
                 2,
             ),

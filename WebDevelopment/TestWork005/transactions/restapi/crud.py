@@ -13,7 +13,7 @@ class Postgres:
     @staticmethod
     def create(
         *,
-        data: schemas.TransactionsCreateIn,
+        data: schemas.PostTransactionsIn,
         api_key: str,
         session: sao.Session,
     ) -> None:
@@ -108,7 +108,11 @@ class Redis:
     def delete(*, api_key: str):
         """Deletes the transactions analysis
         """
-        connections.Redis.ins.delete(api_key)
+        connections.Redis.ins.delete(
+            Redis.CACHE_NAME.format(
+                api_key=api_key,
+            ),
+        )
 
 
 class Celery:

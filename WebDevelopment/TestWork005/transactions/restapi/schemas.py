@@ -2,13 +2,13 @@ from pydantic import BaseModel
 
 
 __all__ = (
-    'TransactionsCreateIn',
-    'TaskStatsUpdateInfo',
-    'StatisticsOut',
+    'PostTransactionsIn',
+    'PostTransactionsOut',
+    'GetStatisticsOut',
 )
 
 
-class TransactionsCreateIn(BaseModel):
+class PostTransactionsIn(BaseModel):
     transaction_id: str
     user_id: int
     amount: float
@@ -16,17 +16,17 @@ class TransactionsCreateIn(BaseModel):
     timestamp: str
 
 
-class TaskStatsUpdateInfo(BaseModel):
+class PostTransactionsOut(BaseModel):
     message: str
     task_id: str
 
 
-class TopTransactionsOut(BaseModel):
+class _TopTransactionsOut(BaseModel):
     transaction_id: str
     amount: int
 
 
-class StatisticsOut(BaseModel):
+class GetStatisticsOut(BaseModel):
     total_transactions: int
     average_transaction_amount: float
-    top_transactions: list[TopTransactionsOut]
+    top_transactions: list[_TopTransactionsOut]
