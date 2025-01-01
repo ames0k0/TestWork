@@ -16,6 +16,7 @@ class Celery:
         cls.ins = celery.Celery(
             broker=settings.celery_broker_url,
         )
+        cls.ins.conf.broker_connection_retry_on_startup = True
 
 
 class Postgres:

@@ -13,6 +13,8 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
+    TOP_TRANSACTIONS_ANALYSIS_LIMIT: int = 3
+
     POSTGRES_SERVER: str
     POSTGRES_PORT: int
     POSTGRES_USER: str

@@ -1,4 +1,5 @@
 import json
+from typing import Sequence
 
 import sqlalchemy as sa
 import sqlalchemy.orm as sao
@@ -36,6 +37,22 @@ class Postgres:
         session.commit()
 
     @staticmethod
+    def get_all(
+        *,
+        api_key: str,
+        session: sao.Session,
+    ) -> Sequence[models.Transactions]:
+        """Returns all transactions for the given `api_key`
+        """
+        return session.scalars(
+            sa.select(
+                models.Transactions,
+            ).where(
+                models.Transactions.api_key == api_key,
+            )
+        ).all()
+
+    @staticmethod
     def delete(
         *,
         api_key: str,
@@ -54,8 +71,8 @@ class Postgres:
 
 
 class Redis:
-    CACHE_NAME = "cache:{api_key}"
-    DEFAULT_STATS = {
+    CACHE_NAME = "transactions_analysis:{api_key}"
+    DEFAULT_TRANSACTIONS_ANALYSIS = {
         "total_transactions": 0,
         "average_transaction_amount": 0,
         "top_transactions": [
@@ -64,27 +81,27 @@ class Redis:
 
     @staticmethod
     def get(api_key: str) -> dict:
-        """Returns the transactions analysis from the cache or empty schema
+        """Returns the transactions analysis from the cache or default
         """
-        stats = connections.Redis.ins.get(
+        transactions_analysis = connections.Redis.ins.get(
             name=Redis.CACHE_NAME.format(
                 api_key=api_key,
             ),
         )
-        if not stats:
-            return Redis.DEFAULT_STATS
+        if not transactions_analysis:
+            return Redis.DEFAULT_TRANSACTIONS_ANALYSIS
 
-        return json.loads(stats)
+        return json.loads(transactions_analysis)
 
     @staticmethod
-    def set(api_key: str, stats: dict):
-        """Setting the transactions analysis
+    def set(*, api_key: str, transactions_analysis: dict):
+        """Caching the transactions analysis
         """
         connections.Redis.ins.set(
             name=Redis.CACHE_NAME.format(
                 api_key=api_key,
             ),
-            value=json.dumps(stats),
+            value=json.dumps(transactions_analysis),
         )
 
     @staticmethod
@@ -96,12 +113,12 @@ class Redis:
 
 class Celery:
     @staticmethod
-    def update_transaction_analysis(*, api_key: str) -> str:
-        """Creates a task `update_transaction_analysis`
+    def update_transactions_analysis(*, api_key: str) -> str:
+        """Creates a task `update_transactions_analysis`
         """
         return connections.Celery.ins.send_task(
-            name="update_transaction_analysis",
-            args=(
-                api_key,
-            )
+            name="update_transactions_analysis",
+            kwargs={
+                "api_key": api_key,
+            }
         ).task_id

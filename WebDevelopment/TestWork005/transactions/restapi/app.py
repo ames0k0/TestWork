@@ -40,7 +40,7 @@ async def post_transactions(
         api_key=api_key,
         session=session,
     )
-    task_id = crud.Celery.update_transaction_statistics(
+    task_id = crud.Celery.update_transactions_analysis(
         api_key=api_key,
     )
     return {
