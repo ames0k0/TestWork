@@ -5,6 +5,15 @@
 ## Web Development
 
 ### Test Tasks
+- [x] [TestWork005](./WebDevelopment/TestWork005) - **Микросервис анализа финансовых транзакций**
+  - FastAPI<sup>1</sup>,
+    SQLAlchemy<sup>3</sup>,
+    pytest<sup>24</sup>,
+    PostgreSQL<sup>4</sup>,
+    Redis<sup>26</sup>,
+    Celery<sup>27</sup>
+  - Docker<sup>7</sup>,
+    Docker Compose<sup>8</sup>
 - [x] [SMIT.studio](./WebDevelopment/SMIT.studio) - **Сервис по расчёту стоимости страхование**
   - FastAPI<sup>1</sup>,
     SQLAlchemy<sup>3</sup>,
@@ -126,3 +135,5 @@
 - <sup>23</sup>https://www.sqlite.org
 - <sup>24</sup>https://docs.pytest.org/en/stable
 - <sup>25</sup>https://kafka.apache.org
+- <sup>26</sup>https://redis.io
+- <sup>27</sup>https://docs.celeryq.dev/en/stable
