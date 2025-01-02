@@ -1,3 +1,5 @@
+import datetime as dt
+
 from pydantic import BaseModel
 
 
@@ -13,7 +15,7 @@ class PostTransactionsIn(BaseModel):
     user_id: int
     amount: float
     currency: str
-    timestamp: str
+    timestamp: dt.datetime
 
 
 class PostTransactionsOut(BaseModel):

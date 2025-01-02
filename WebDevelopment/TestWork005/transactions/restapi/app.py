@@ -24,6 +24,7 @@ app = FastAPI(
 
 @app.post(
     '/transactions',
+    tags=['Транзакция'],
     summary='Загрузка транзакции',
     response_model=schemas.PostTransactionsOut,
 )
@@ -51,6 +52,7 @@ async def post_transactions(
 
 @app.delete(
     '/transactions',
+    tags=['Транзакция'],
     summary='Удаление всех транзакций',
 )
 async def delete_transactions(
@@ -69,6 +71,7 @@ async def delete_transactions(
 
 @app.get(
     '/statistics',
+    tags=['Транзакция'],
     summary='Получение статистики по транзакциям',
     response_model=schemas.GetStatisticsOut,
 )
