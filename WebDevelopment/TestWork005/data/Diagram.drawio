@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/25.0.1 Chrome/128.0.6613.186 Electron/32.2.6 Safari/537.36" version="25.0.1">
   <diagram name="Page-1" id="o1BG832dbzwNH8DZ9vMf">
-    <mxGraphModel dx="1834" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1931" dy="882" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -176,13 +176,13 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="3QUCudFNaCBAuOS9WqLj-79" value="Update Stats" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="340" y="600" width="80" height="40" as="geometry" />
+        <mxCell id="3QUCudFNaCBAuOS9WqLj-79" value="update_transactions_analysis" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="280" y="600" width="200" height="40" as="geometry" />
         </mxCell>
         <mxCell id="3QUCudFNaCBAuOS9WqLj-180" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="3QUCudFNaCBAuOS9WqLj-85" target="3QUCudFNaCBAuOS9WqLj-178" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="3QUCudFNaCBAuOS9WqLj-85" value="NoSQL DB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="1" vertex="1">
+        <mxCell id="3QUCudFNaCBAuOS9WqLj-85" value="Redis DB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="1" vertex="1">
           <mxGeometry x="600" y="520" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="3QUCudFNaCBAuOS9WqLj-122" value="TopTransactions :: JSON" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;" parent="1" vertex="1">
@@ -217,7 +217,7 @@
         <mxCell id="3QUCudFNaCBAuOS9WqLj-143" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="3QUCudFNaCBAuOS9WqLj-142" target="3QUCudFNaCBAuOS9WqLj-13" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="3QUCudFNaCBAuOS9WqLj-142" value="SQL DB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="1" vertex="1">
+        <mxCell id="3QUCudFNaCBAuOS9WqLj-142" value="PostgreSQL DB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="1" vertex="1">
           <mxGeometry x="170" y="120" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="3QUCudFNaCBAuOS9WqLj-178" value="Names" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">

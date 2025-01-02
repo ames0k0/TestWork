@@ -25,6 +25,7 @@ docker compose up --build
 #### Запуск приложения локально (и тестирования)
 > [!IMPORTANT]
 > Необходимо редактировать ./deploy/.env-local
+> Хост, порт, база, ...
 
 <details>
 <summary>Зависимости</summary>
@@ -46,6 +47,7 @@ service postgresql start
 
 # create venv
 python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 
 # run rest api
@@ -68,6 +70,8 @@ tree -a -I ".venv|__pycache__|__init__.py|.idea|.pytest_cache|data" --dirsfirst
 │   └── app.py
 ├── deploy
 │   ├── analysis
+│   ├── .env-docker
+│   ├── .env-local
 │   └── restapi
 ├── restapi
 │   ├── app.py
@@ -78,7 +82,7 @@ tree -a -I ".venv|__pycache__|__init__.py|.idea|.pytest_cache|data" --dirsfirst
 │   └── schemas.py
 ├── tests
 │   └── test_endpoints.py
-├── .env
+├── docker-compose.yml
 ├── .gitignore
 ├── README.md
 ├── requirements.txt
@@ -108,3 +112,6 @@ tree -a -I ".venv|__pycache__|__init__.py|.idea|.pytest_cache|data" --dirsfirst
 - <sup>5</sup>https://redis.io/
 - <sup>6</sup>https://docs.celeryq.dev/en/stable/
 - <sup>7</sup>https://docs.docker.com/compose
+
+---
+<p align="center"><img src="./data/Diagram.drawio.png" /></p>¬
