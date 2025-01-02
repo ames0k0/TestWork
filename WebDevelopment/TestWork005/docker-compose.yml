@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:latest
+    hostname: postgres
+    restart: always
+    env_file: ./deploy/.env-docker
+  redis:
+    image: redis:latest
+    hostname: redis
+    restart: always
+    env_file: ./deploy/.env-docker
+  restapi:
+    build:
+      context: .
+      dockerfile: ./deploy/restapi
+    restart: always
+    env_file: ./deploy/.env-docker
+    ports:
+      - 8000:8000
+    links:
+      - postgres
+      - redis
+    depends_on:
+      - postgres
+      - redis
+  analysis:
+    build:
+      context: .
+      dockerfile: ./deploy/analysis
+    restart: always
+    env_file: ./deploy/.env-docker
+    links:
+      - postgres
+      - redis
+    depends_on:
+      - restapi
