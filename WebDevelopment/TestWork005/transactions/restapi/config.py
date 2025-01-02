@@ -1,3 +1,5 @@
+import os
+
 from pydantic import (
     computed_field,
 )
@@ -6,12 +8,12 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(
-        # env_file="../../secrets/.env",
-        env_file='.env',
-        env_ignore_empty=True,
-        extra="ignore",
-    )
+    if not os.environ.get("POSTGRES_SERVER"):
+        model_config = SettingsConfigDict(
+            env_file='deploy/.env-local',
+            env_ignore_empty=True,
+            extra="ignore",
+        )
 
     TOP_TRANSACTIONS_ANALYSIS_LIMIT: int = 3
 

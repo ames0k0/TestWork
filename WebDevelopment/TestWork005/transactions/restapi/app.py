@@ -4,7 +4,11 @@ from typing import Annotated
 from fastapi import FastAPI, Header, Depends
 from sqlalchemy.orm import Session
 
-from . import schemas, models, connections, crud
+from . import (
+    schemas,
+    connections,
+    crud,
+)
 
 
 @asynccontextmanager

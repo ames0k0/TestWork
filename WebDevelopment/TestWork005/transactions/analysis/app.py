@@ -27,25 +27,22 @@ def update_transactions_analysis(*, api_key: str) -> None:
 
     for transaction in transactions:
         total_transactions_amount += transaction.amount
-        in_top_transactions_limit = len(
-            top_transactions
-        ) <= config.settings.TOP_TRANSACTIONS_ANALYSIS_LIMIT
 
         for idx, top_transaction in enumerate(
             top_transactions[:config.settings.TOP_TRANSACTIONS_ANALYSIS_LIMIT]
         ):
             if transaction.amount > top_transaction.amount:
                 top_transactions.insert(idx, transaction)
+                if len(
+                    top_transactions
+                ) > config.settings.TOP_TRANSACTIONS_ANALYSIS_LIMIT:
+                    top_transactions.pop()
                 break
         else:
-            # len -> 4
-            # amount=3, amount=3
-            if in_top_transactions_limit:
+            if len(
+                top_transactions
+            ) < config.settings.TOP_TRANSACTIONS_ANALYSIS_LIMIT:
                 top_transactions.append(transaction)
-
-        # Deleting the last added transaction
-        if not in_top_transactions_limit:
-            top_transactions.pop()
 
     crud.Redis.set(
         api_key=api_key,
