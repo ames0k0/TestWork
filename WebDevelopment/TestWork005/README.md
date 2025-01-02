@@ -24,7 +24,7 @@ docker compose up --build
 
 #### Запуск приложения локально (и тестирования)
 > [!IMPORTANT]
-> Необходимо редактировать ./deploy/.env-local
+> Необходимо редактировать [./deploy/.env-local](./deploy/.env-local) <br />
 > Хост, порт, база, ...
 
 <details>
@@ -45,7 +45,7 @@ service redis-server start
 # run postgresql service
 service postgresql start
 
-# create venv
+# create venv (linux OS)
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -114,4 +114,4 @@ tree -a -I ".venv|__pycache__|__init__.py|.idea|.pytest_cache|data" --dirsfirst
 - <sup>7</sup>https://docs.docker.com/compose
 
 ---
-<p align="center"><img src="./data/Diagram.drawio.png" /></p>¬
+<p align="center"><img src="./data/Diagram.drawio.png" /></p>
