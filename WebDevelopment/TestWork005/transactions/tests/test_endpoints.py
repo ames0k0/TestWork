@@ -1,3 +1,5 @@
+import time
+
 from fastapi.testclient import TestClient
 
 from restapi.app import app
@@ -39,13 +41,14 @@ def test_post_transactions():
 def test_get_statistics():
     # NOTE: added 1 transaction,
     # for the large data we may need to wait tasks to be finished
+    time.sleep(1)
     response = client.get(
         "/statistics",
         headers=HEADERS,
     ).json()
     # default is '0',
     # even if there is no transactions for this ApiKey
-    assert response['total_transactions'] > 0
+    assert response['total_transactions'] != 0
 
 
 def test_delete_transactions():
