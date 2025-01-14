@@ -37,20 +37,25 @@ class Postgres:
         session.commit()
 
     @staticmethod
-    def get_all(
+    def get_transactions_to_analyze(
         *,
         api_key: str,
+        analysed_transaction_id: str | None,
         session: sao.Session,
     ) -> Sequence[models.Transactions]:
         """Returns all transactions for the given `api_key`
         """
-        return session.scalars(
-            sa.select(
-                models.Transactions,
-            ).where(
-                models.Transactions.api_key == api_key,
+        q = sa.select(
+            models.Transactions,
+        ).where(
+            models.Transactions.api_key == api_key,
+        )
+        if analysed_transaction_id is not None:
+            q = q.where(
+                models.Transactions.transaction_id > analysed_transaction_id,
             )
-        ).all()
+        q = q.order_by(models.Transactions.transaction_id)
+        return session.scalars(q).all()
 
     @staticmethod
     def delete(
@@ -73,10 +78,11 @@ class Postgres:
 class Redis:
     CACHE_NAME = "transactions_analysis:{api_key}"
     DEFAULT_TRANSACTIONS_ANALYSIS = {
+        "analysed_transaction_id": None,
         "total_transactions": 0,
+        "total_transactions_amount": 0,
         "average_transaction_amount": 0,
-        "top_transactions": [
-        ]
+        "top_transactions": [],
     }
 
     @staticmethod
