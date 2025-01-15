@@ -1,5 +1,5 @@
 # [Leet Code](https://leetcode.com)
-### Top 100 Liked Questions
+### [Top 100 Liked](https://leetcode.com/studyplan/top-100-liked/)
 | ID  |                                                        Title                                                        | Difficulty |                              Solved with                               |
 |:---:|:-------------------------------------------------------------------------------------------------------------------:|:----------:|:----------------------------------------------------------------------:|
 | 001 |                                  [Two Sum](https://leetcode.com/problems/two-sum/)                                  |    Easy    |               [Python](./Top100LikedQuestions/TwoSum.md)               |
@@ -18,7 +18,7 @@
 | 014 |                      [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)                      |    Easy    |         [Python](./Top100LikedQuestions/ReverseLinkedList.md)          |
 | 015 |                            [Counting Bits](https://leetcode.com/problems/counting-bits/)                            |    Easy    |            [Python](./Top100LikedQuestions/CountingBits.md)            |
 
-### LeetCode 75
+### [LeetCode 75](https://leetcode.com/studyplan/leetcode-75/)
 | ID  |                                                        Title                                                        | Difficulty |                              Solved with                               |
 |:---:|:-------------------------------------------------------------------------------------------------------------------:|:----------:|:----------------------------------------------------------------------:|
 | 001 |                                  [Move Zeros (modify in-place)](https://leetcode.com/problems/move-zeroes/)                                  |    Easy    |               [Python](./LeetCode-75/MoveZeros.md)               |
