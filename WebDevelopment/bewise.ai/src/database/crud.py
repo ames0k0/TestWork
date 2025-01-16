@@ -24,8 +24,9 @@ class Application:
 
         user_name = filter_params.get("user_name")
         if user_name is not None:
-            q = q.where(models.Application.user_name.ilike(user_name))
+            # XXX: no context, used `eq`
+            q = q.where(models.Application.user_name == user_name)
 
-        q = q.order_by(models.Application.id)
+        q = q.order_by(models.Application.id.desc())
 
         return await paginate(async_session, q)

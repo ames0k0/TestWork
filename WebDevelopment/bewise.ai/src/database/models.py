@@ -15,7 +15,7 @@ class Application(Base):
     __tablename__ = "application"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    user_name: Mapped[str]
+    user_name: Mapped[str] = mapped_column(index=True)
     description: Mapped[str]
     created_at: Mapped[datetime.datetime] = mapped_column(
         server_default=func.now()

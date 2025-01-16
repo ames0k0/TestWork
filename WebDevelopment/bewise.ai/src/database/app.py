@@ -33,8 +33,15 @@ class Postgres:
         await cls.async_engine.dispose()
 
     @classmethod
-    async def get_async_scoped_session(cls):
+    def get_async_scoped_session(cls):
         return async_scoped_session(
             session_factory=cls.async_session_factory,
             scopefunc=current_task,
         )
+
+    @classmethod
+    async def session_dependency(cls):
+        async_session = cls.get_async_scoped_session()
+        async with async_session() as session:
+            yield session
+            await async_session.remove()

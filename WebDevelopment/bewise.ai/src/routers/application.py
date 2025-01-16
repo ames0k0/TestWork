@@ -23,7 +23,7 @@ async def post(
     application: schemas.PostApplicationIn,
     async_session: Annotated[
         AsyncSession,
-        Depends(dependency=Postgres.get_async_scoped_session),
+        Depends(dependency=Postgres.session_dependency),
     ],
 ):
     """Создания новой заявки, возвращает модель
@@ -47,7 +47,7 @@ async def get(
     ],
     async_session: Annotated[
         AsyncSession,
-        Depends(dependency=Postgres.get_async_scoped_session),
+        Depends(dependency=Postgres.session_dependency),
     ],
 ):
     """Получения списка заявок
