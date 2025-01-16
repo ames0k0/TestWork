@@ -1,12 +1,9 @@
-from typing import Annotated, TypeVar
+from typing import Annotated
 
 from pydantic import constr
-
 from fastapi import Query
 
-
 from src.core.config import settings
-from . import schemas
 
 
 def filter_params(

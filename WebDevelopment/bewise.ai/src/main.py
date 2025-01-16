@@ -1,25 +1,5 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-"""
-
-/src
-    /routers
-        application.py
-    /database
-        app
-        crud
-        models
-    /datastream
-        app
-tests
-    /
-"""
-
-
-from typing import Union
-
 from fastapi import FastAPI
+from fastapi_pagination import add_pagination
 
 from src.core import dependencies
 from src.routers import application
@@ -30,10 +10,10 @@ app = FastAPI(
     summary="Сервис для обработки заявок пользователей",
     lifespan=dependencies.lifespan,
 )
-
-
 app.include_router(
     router=application.router,
     prefix='/applications',
     tags=['Заявки'],
 )
+
+add_pagination(app)

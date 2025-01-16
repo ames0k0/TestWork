@@ -3,7 +3,6 @@ from typing import Annotated
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from fastapi import APIRouter, Depends
-from fastapi_pagination import Page
 
 from src.database import crud
 from src.database.app import Postgres
@@ -33,7 +32,7 @@ async def post(
         application=application,
         async_session=async_session,
     )
-    # await Kafka.publish_new_application(obj=obj)
+    await Kafka.publish_new_application(obj=obj)
     return obj
 
 

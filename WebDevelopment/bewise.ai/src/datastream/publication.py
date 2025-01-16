@@ -1,3 +1,4 @@
+import json
 from enum import Enum
 
 from src.database import models
@@ -9,16 +10,14 @@ class TopicEnum(str, Enum):
 
 
 class Kafka:
-    """Logging user events
-    """
     @staticmethod
     async def publish_new_application(obj: models.Application):
         await app.Kafka.producer.send(
-            topic=TopicEnum.KAFKA,
-            value={
+            topic=TopicEnum.KAFKA.value,
+            value=json.dumps({
                 "id": obj.id,
                 "user_name": obj.user_name,
                 "description": obj.description,
-                "created_at": obj.created_at,
-            },
+                "created_at": str(obj.created_at),
+            }).encode(),
         )

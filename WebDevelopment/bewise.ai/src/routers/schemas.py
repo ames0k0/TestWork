@@ -2,7 +2,6 @@ import datetime as dt
 from typing import TypeVar
 
 from pydantic import BaseModel, Field
-
 from fastapi import Query
 from fastapi_pagination import Page
 from fastapi_pagination.customization import CustomizedPage, UseParamsFields

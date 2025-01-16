@@ -1,0 +1,36 @@
+services:
+  restapi:
+    build:
+      context: .
+      dockerfile: ./deploy/docker/restapi
+    container_name: bewise.ai-restapi
+    hostname: restapi
+    restart: on-failure
+    env_file: ./deploy/secrets/.env-restapi
+    ports:
+      - 8000:8000
+    links:
+      - broker
+      - postgres
+    depends_on:
+      broker:
+        condition: service_healthy
+      postgres:
+        condition: service_started
+  broker:
+    image: apache/kafka:latest
+    container_name: bewise.ai-broker
+    hostname: broker
+    restart: always
+    env_file: ./deploy/secrets/.env-kafka
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server broker:9092"]
+      interval: 2s
+      retries: 5
+      timeout: 10s
+  postgres:
+    image: postgres:latest
+    container_name: bewise.ai-postgres
+    hostname: postgres
+    restart: always
+    env_file: ./deploy/secrets/.env-postgres

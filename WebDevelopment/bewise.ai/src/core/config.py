@@ -30,14 +30,19 @@ class Postgres(BaseModel):
         )
 
 
+class Kafka(BaseModel):
+    BOOTSTRAP_SERVERS: str
+
+
 class Settings(BaseSettings):
-    if not os.environ.get("POSTGRES__SERVER"):
-        model_config = SettingsConfigDict(
-            env_file='deploy/secrets/.env-local',
-            env_ignore_empty=True,
-            extra="ignore",
-            env_nested_delimiter="__",
-        )
+    model_config = SettingsConfigDict(
+        env_ignore_empty=True,
+        extra="ignore",
+        env_nested_delimiter="__",
+    )
+
+    postgres: Postgres
+    kafka: Kafka
 
     FILTER_NAME_MIN_LENGTH: int = 1
 
@@ -45,8 +50,6 @@ class Settings(BaseSettings):
     PAGINATION_SIZE_MIN: int = 1
     PAGINATION_SIZE_MAX: int = 100
     PAGINATION_SIZE_DEFAULT: int = 20
-
-    postgres: Postgres
 
 
 settings = Settings()

@@ -1,15 +1,15 @@
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
-from fastapi_pagination import add_pagination
 
 from src.database.app import Postgres
+from src.datastream.app import Kafka
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    add_pagination(app)
-
     await Postgres.initialize()
+    await Kafka.initialize()
     yield
+    await Kafka.terminate()
     await Postgres.terminate()

@@ -1,6 +1,6 @@
 from aiokafka import AIOKafkaProducer
 
-from src.core import config
+from src.core.config import settings
 
 
 class Kafka:
@@ -9,7 +9,7 @@ class Kafka:
     @classmethod
     async def initialize(cls):
         cls.producer = AIOKafkaProducer(
-            bootstrap_servers=config.KAFKA_PRODUCER_BOOTSTRAP_SERVERS,
+            bootstrap_servers=settings.kafka.BOOTSTRAP_SERVERS,
         )
         await cls.producer.start()
 

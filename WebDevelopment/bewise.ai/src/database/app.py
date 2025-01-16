@@ -1,13 +1,11 @@
 from asyncio import current_task
 
+from sqlalchemy.ext.asyncio import AsyncEngine
 from sqlalchemy.ext.asyncio import (
-    AsyncEngine,
     create_async_engine,
+    async_sessionmaker,
     async_scoped_session,
 )
-
-
-from sqlalchemy.ext.asyncio import async_sessionmaker
 
 from src.core.config import settings
 from . import models

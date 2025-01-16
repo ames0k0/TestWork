@@ -1,9 +1,8 @@
 import sqlalchemy as sa
 
-from fastapi_pagination import Page, paginate
+from fastapi_pagination import paginate
 from fastapi_pagination.ext.sqlalchemy import paginate
 
-from src.database.app import Postgres
 from . import models
 
 
