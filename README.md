@@ -5,6 +5,14 @@
 ## Web Development
 
 ### Test Tasks
+- [x] [bewise.ai](./WebDevelopment/bewise.ai) - **Сервис для обработки заявок пользователей**
+  - FastAPI<sup>1</sup>,
+    FastAPI Pagination<sup>2</sup>,
+    SQLAlchemy<sup>3</sup>,
+    PostgreSQL<sup>4</sup>,
+    Apache Kafka<sup>25</sup>
+  - Docker<sup>7</sup>,
+    Docker Compose<sup>8</sup>
 - [x] [TestWork005](./WebDevelopment/TestWork005) - **Микросервис анализа финансовых транзакций**
   - FastAPI<sup>1</sup>,
     SQLAlchemy<sup>3</sup>,
