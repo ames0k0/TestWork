@@ -1,0 +1,7 @@
+fastapi==0.115.6
+fastapi-cli==0.0.7
+SQLAlchemy==2.0.36
+pydantic-settings==2.7.1
+asyncpg==0.30.0
+fastapi-pagination==0.12.34
+aiokafka==0.12.0
