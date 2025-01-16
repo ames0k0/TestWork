@@ -141,5 +141,6 @@ tree -a -I ".venv|__pycache__|__init__.py|.idea|.pytest_cache|data" --dirsfirst
 - <sup>6</sup>https://docs.docker.com/compose
 
 ---
+<p align="center">Записал процесс разработки, 3-мин <a href="https://youtu.be/sS-v0bNf-ag">YouTube</a> видео!</p>
 <p align="center"><img src="./data/rest-api.png" /></p>
 <p align="center"><img src="./data/Diagram.drawio.png" /></p>
