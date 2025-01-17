@@ -1,3 +1,5 @@
+import json
+import datetime as dt
 from enum import Enum
 
 from src.logging.app import Kafka
@@ -13,12 +15,13 @@ class UserEventsLogger:
     @staticmethod
     def log_to_kafka(
         user_id: int | None,
-        event_topic: TopicEnum, event_message: str, event_timestamp: float,
+        event_topic: TopicEnum, event_message: str, event_datetime: dt.datetime,
     ):
         Kafka.producer.send(
-            key=str(user_id).encode(),
-            value=event_message.encode(),
-            timestamp_ms=int(event_timestamp),
             topic=event_topic,
+            value=json.dumps({
+                "user_id": user_id,
+                "event_message": event_message,
+                "event_datetime": str(event_datetime),
+            }).encode(),
         )
-        Kafka.producer.flush()

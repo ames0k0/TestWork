@@ -44,7 +44,7 @@ async def insurance_calculation(
             user_id=config.DEFAULT_USER_ID,
             event_topic=TopicEnum.TARIFF.value,
             event_message='Загружен тариф через API',
-            event_timestamp=dt.datetime.now().timestamp(),
+            event_datetime=dt.datetime.now(),
         )
         crud.Tariff.create(db, insurance_rate)
 
@@ -102,7 +102,7 @@ async def delete_tariff(
         user_id=config.DEFAULT_USER_ID,
         event_topic=TopicEnum.TARIFF.value,
         event_message=f"Запрос на удаление тарифа по дате: {tariff_date}",
-        event_timestamp=dt.datetime.now().timestamp(),
+        event_datetime=dt.datetime.now(),
     )
     crud.Tariff.delete_by_date(db=db, tariff_date=tariff_date)
 

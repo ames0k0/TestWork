@@ -9,7 +9,7 @@ __all__ = (
 
 
 class Kafka:
-    producer = None
+    producer: KafkaProducer = None
 
     @classmethod
     def initialize(cls):

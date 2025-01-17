@@ -1,8 +1,14 @@
 services:
   broker:
     image: apache/kafka:latest
-    container_name: broker
+    hostname: broker
+    container_name: SMIT.studio-broker
     network_mode: host
+    healthcheck:
+      test: [ "CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092" ]
+      interval: 2s
+      retries: 5
+      timeout: 10s
     environment:
       KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: broker,controller
@@ -19,14 +25,14 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
       KAFKA_CREATE_TOPICS: "TARIFF"
       AUTO_CREATE_TOPICS: "true"
-
   restapi:
     build:
       context: .
       network: host
-    container_name: restapi
+    hostname: restapi
+    container_name: SMIT.studio-restapi
     network_mode: host
+    restart: always
     depends_on:
-      - broker
-    # XXX: hack - broker is not ready to connect
-    restart: on-failure
+      broker:
+        condition: service_healthy
