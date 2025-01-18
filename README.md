@@ -76,8 +76,9 @@
 
 ### Test Tasks
 - [x] [CountDotsInPic](./ProjectsAndScripts/CountDotsInPic) - **Алгоритм для подсчёта точек в картинке**
-- [x] [WordCounter - Python Implementation](ProjectsAndScripts/WordCounter/wc.py) - **Имплементации программы `wc` на Python**
-- [x] [STT-Engine Result Fixer](ProjectsAndScripts/ImotIO) - **STT-Engine result fixer**
+- [x] [WordCounter - Python Implementation](./ProjectsAndScripts/WordCounter) - **Имплементации программы `wc` на Python**
+- [x] [STT-Engine Result Fixer](./ProjectsAndScripts/ImotIO) - **STT-Engine result fixer**
+- [x] [ZARMA](./ProjectsAndScripts/ZARMA) - **Получение данных через API, и их обработка**
 - [x] [Web Content With Socket](./ProjectsAndScripts/WebContentWithSocket) - **Downloading the Web page (HTML) via `socket`**
 - [x] [Find Max Zeros](./ProjectsAndScripts/FindMaxZeros) - **Найти максимальную длину последовательных нулей**
 - [x] [Filter Duplicates by Timestamp](./ProjectsAndScripts/FilterDuplicates) - **Фильтр дубликатов**
