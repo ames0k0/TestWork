@@ -101,9 +101,7 @@ def optimized_script():
 
 if __name__ == "__main__":
     DATA_DIR = Path("DATA")
-
-    if not DATA_DIR.exists():
-        DATA_DIR.mkdir(exist_ok=True)
+    DATA_DIR.mkdir(exist_ok=True)
 
     # connect_and_download_web_data()
     # print_db_users_over_thirty()
