@@ -22,6 +22,7 @@
     Celery<sup>27</sup>
   - Docker<sup>7</sup>,
     Docker Compose<sup>8</sup>
+- [ ] [Nebus](./WebDevelopment/Nebus) - **Сервис для справочника Организаций, Зданий, Деятельности**
 - [x] [SMIT.studio](./WebDevelopment/SMIT.studio) - **Сервис по расчёту стоимости страхование**
   - FastAPI<sup>1</sup>,
     SQLAlchemy<sup>3</sup>,
