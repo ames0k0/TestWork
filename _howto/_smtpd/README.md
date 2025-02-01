@@ -1,4 +1,5 @@
-### SMTPD (!Deprecated)
+> [!Warning]
+> SMTPD (!Deprecated)
 ```bash
 export EMAIL_HOST="localhost"
 export EMAIL_PORT=1025
