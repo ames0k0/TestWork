@@ -21,12 +21,12 @@ async def task(*, task_id: int, ttl: int) -> None:
 
 async def main():
 	start = time.time()
-	await asyncio.gather(
-		*[
+	tasks = []
+	for idx, ttl in enumerate([3, 2, 1, 1, 2]):
+		tasks.append(
 			asyncio.create_task(task(task_id=idx, ttl=ttl))
-			for idx, ttl in enumerate([3, 2, 1, 1, 2])
-		]
-	)
+		)
+	await asyncio.gather(*tasks)
 	end = time.time()
 	print('>>>>', end - start)
 
