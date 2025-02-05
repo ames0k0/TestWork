@@ -1,4 +1,4 @@
-json_response - [EXAMPLE](./_jsn.py)
+json_response - [EXAMPLE](./jsn.py)
 ```python
 def empty(argv):
 	app = web.Application()
