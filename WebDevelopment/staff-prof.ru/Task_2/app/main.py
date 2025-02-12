@@ -4,7 +4,12 @@ from app.dependencies import lifespan
 from app.routers import user, record
 
 
-app = FastAPI(lifespan=lifespan)
+app = FastAPI(
+    lifespan=lifespan,
+    title="staff-prof.ru",
+    summary="AAAAKKKK",
+    description="fsefsfsefsefse fsefsefseoifjsef",
+)
 
 
 app.include_router(

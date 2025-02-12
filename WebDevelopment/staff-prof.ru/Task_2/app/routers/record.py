@@ -1,25 +1,18 @@
 from typing import Annotated
 
-from pydantic import BaseModel, HttpUrl
-from fastapi import APIRouter, Query, UploadFile, Form
+from pydantic import HttpUrl
+from fastapi import APIRouter, Query, Form
+
+from app import schemas
+from app.dependencies import parse_record_id_and_user_id
 
 
 router = APIRouter()
 
 
-class UploadRecordFormData(BaseModel):
-    """Входные данные для добавление аудиозаписи"""
-
-    id: int = Query(description="Идентификатор пользователя")
-    token: str = Query(description="Токен доступа")
-    file: UploadFile
-
-    model_config = {"extra": "forbid"}
-
-
 @router.post("")
 async def upload_record(
-    data: Annotated[UploadRecordFormData, Form()],
+    data: Annotated[schemas.UploadRecordFormData, Form()],
 ):
     # TODO: convert
     # TODO: SAVE to db
@@ -30,5 +23,9 @@ async def upload_record(
 async def download_record(
     url: HttpUrl = Query(description="URL для скачивание записи"),
 ):
+    record_id, user_id = parse_record_id_and_user_id(url=url)
     # TODO: stream downloaded record
-    return url
+    return {
+        "record_id": record_id,
+        "user_id": user_id,
+    }
