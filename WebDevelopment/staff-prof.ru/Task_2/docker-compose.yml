@@ -1,0 +1,38 @@
+services:
+  web:
+    build: .
+    container_name: staff_prof_ru__web
+    environment:
+      PG_DSN: postgresql+psycopg2://postgres:simple@database:5432/staff_prof_ru
+      APP_HOST: 0.0.0.0
+      APP_PORT: 8000
+    links:
+      - database
+    depends_on:
+      database:
+        condition: service_healthy
+        restart: true
+    ports:
+      - 8000:8000
+    restart: always
+  database:
+    image: postgres
+    container_name: staff_prof_ru__database
+    environment:
+      POSTGRES_PASSWORD: simple
+      POSTGRES_DB: staff_prof_ru
+      POSTGRES_USER: postgres
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d staff_prof_ru"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+    restart: always
+
+volumes:
+  pgdata:
+    driver: local

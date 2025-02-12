@@ -12,7 +12,7 @@ class Postgres:
 
     @classmethod
     def initialize(cls):
-        cls.engine = create_engine(url=str(settings.PG_DSN), echo=True)
+        cls.engine = create_engine(url=str(settings.PG_DSN))
         cls.session_factory = sessionmaker(
             bind=cls.engine,
             expire_on_commit=False,
