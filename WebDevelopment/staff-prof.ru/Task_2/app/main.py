@@ -1,24 +1,15 @@
 from fastapi import FastAPI
 
 from app.dependencies import lifespan
-from app.routers import user, record
+from app.routers import routers
 
 
 app = FastAPI(
     lifespan=lifespan,
     title="staff-prof.ru",
-    summary="AAAAKKKK",
-    description="fsefsfsefsefse fsefsefseoifjsef",
+    summary="Музыкальный веб сервис",
+    description="Пользователям доступно загрузки и отгрузки аудиозаписей",
 )
 
-
-app.include_router(
-    user.router,
-    prefix="/user",
-    tags=["user"],
-)
-app.include_router(
-    record.router,
-    prefix="/record",
-    tags=["record"],
-)
+for router in routers:
+    app.include_router(router=router)

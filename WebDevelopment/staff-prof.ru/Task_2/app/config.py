@@ -3,13 +3,14 @@ from pydantic_settings import BaseSettings
 
 
 # XXX: https://mimetype.io/audio/wav
-SUPPORTED_RECORD_FILE_TYPES = {
+SUPPORTED_RECORD_UPLOAD_FILE_TYPES: set[str] = {
     "audio/vnd.wav",
     "audio/vnd.wave",
     "audio/wave",
     "audio/x-pn-wav",
     "audio/x-wav",
 }
+SUPPORTED_RECORD_RESPONSE_FILE_TYPE: str = "audio/x-wav"
 
 
 class Settings(BaseSettings):

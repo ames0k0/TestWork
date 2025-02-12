@@ -1,10 +1,14 @@
-from fastapi import APIRouter, Query, status
+import sqlalchemy.orm as sao
+from fastapi import APIRouter, Query, Depends, status
 
-from app import schemas
+from app import schemas, dependencies
 from app.sqldb import crud
 
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/user",
+    tags=["user"],
+)
 
 
 @router.post(
@@ -14,5 +18,7 @@ router = APIRouter()
 )
 async def create_user(
     name: str = Query(..., description="Имя пользователя"),
+    session: sao.Session = Depends(dependency=dependencies.get_session),
 ) -> dict:
-    return crud.User.create(name=name)
+    """Создание пользователя"""
+    return crud.User.create(name=name, session=session)

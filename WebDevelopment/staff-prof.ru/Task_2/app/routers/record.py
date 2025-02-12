@@ -1,17 +1,21 @@
 import asyncio
 from typing import Annotated
 
+import sqlalchemy.orm as sao
 from pydantic import HttpUrl, UUID4, PositiveInt, AfterValidator
-from fastapi import APIRouter, Query, Form, status, UploadFile, File
+from fastapi import APIRouter, Query, Form, status, UploadFile, File, Depends
 from fastapi.responses import Response
 
-from app import schemas
-from app.config import settings
+from app import schemas, dependencies, exceptions
+from app.config import settings, SUPPORTED_RECORD_RESPONSE_FILE_TYPE
 from app.dependencies import parse_record_id_and_user_id
 from app.sqldb import crud
 
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/record",
+    tags=["record"],
+)
 
 
 @router.post(
@@ -26,10 +30,12 @@ async def upload_record(
         File(description="Аудиозапись в формате .wav"),
         AfterValidator(schemas.supported_record_file_ext),
     ],
-):
-    user = crud.User.get(id=id, token=token)
+    session: sao.Session = Depends(dependency=dependencies.get_session),
+) -> str:
+    """Загрузка аудиозаписи"""
+    user = crud.User.get(id=id, token=token, session=session)
     if not user:
-        raise NotImplementedError()
+        raise exceptions.UserIDOrTokenIsInvalid()
 
     # XXX: Конвертирует...
     await asyncio.sleep(2)
@@ -38,6 +44,7 @@ async def upload_record(
         user_id=user.id,
         filename=file.filename,
         file=(await file.read()),
+        session=session,
     )
 
     return settings.APP_RECORD_URL_TEMPLATE.format(
@@ -51,13 +58,19 @@ async def upload_record(
 @router.get("")
 async def download_record(
     url: HttpUrl = Query(description="URL для скачивание записи"),
+    session: sao.Session = Depends(dependency=dependencies.get_session),
 ) -> Response:
+    """Скачивание аудизаписей по URL"""
     record_id, user_id = parse_record_id_and_user_id(url=url)
     record = crud.Record.get(
         record_id=record_id,
         user_id=user_id,
+        session=session,
     )
+    if not record:
+        raise exceptions.RecordIDOrUserIDIsInvalid()
+
     return Response(
         content=record.file,
-        media_type="audio/x-wav",
+        media_type=SUPPORTED_RECORD_RESPONSE_FILE_TYPE,
     )
