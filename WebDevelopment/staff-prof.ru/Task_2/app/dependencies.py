@@ -1,3 +1,4 @@
+import uuid
 import contextlib
 from typing import AnyStr
 from urllib.parse import parse_qs
@@ -17,7 +18,7 @@ async def lifespan(app: FastAPI):
     Postgres.terminate()
 
 
-def parse_record_id_and_user_id(url: HttpUrl) -> tuple[int, int]:
+def parse_record_id_and_user_id(url: HttpUrl) -> tuple[str, int]:
     """Parsing the given `url` to downlaod a record
 
     Parameters
@@ -31,22 +32,25 @@ def parse_record_id_and_user_id(url: HttpUrl) -> tuple[int, int]:
         record_id, user_id
     """
 
-    def str_to_int(data: list[AnyStr]) -> int | None:
+    def convert_to_type(
+        data: list[AnyStr], type_: int | uuid.UUID
+    ) -> int | uuid.UUID | None:
         for record_id in data:
             record_id = record_id.strip()
             if not record_id:
                 continue
             with contextlib.suppress(ValueError):
-                return int(record_id)
+                return type_(record_id)
 
     parsed_query: dict[AnyStr, list[AnyStr]] = parse_qs(url.query)
+
     record_ids: list[AnyStr] | None = parsed_query.get("id", [])
     user_ids: list[AnyStr] | None = parsed_query.get("user", [])
 
-    record_id: int | None = str_to_int(record_ids)
-    user_id: int | None = str_to_int(user_ids)
+    record_id: uuid.UUID | None = convert_to_type(record_ids, uuid.UUID)
+    user_id: int | None = convert_to_type(user_ids, int)
 
     if not all((record_id, user_id)):
         raise RecordIDAndUserIDAreRequired()
 
-    return record_id, user_id
+    return str(record_id), user_id

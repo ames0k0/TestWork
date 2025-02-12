@@ -36,7 +36,7 @@ class User(Base):
 class Record(Base):
     __tablename__ = "user_record"
 
-    id: Mapped[str] = mapped_column(UUID, primary_key=True)
+    id: Mapped[str] = mapped_column(UUID, primary_key=True, default=uuid.uuid4)
     filename: Mapped[str]
     file: Mapped[bytes] = mapped_column(LargeBinary)
 
