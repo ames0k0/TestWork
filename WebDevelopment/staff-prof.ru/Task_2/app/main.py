@@ -18,4 +18,8 @@ for router in routers:
 
 
 if __name__ == "__main__":
-    uvicorn.run(app=app, host=settings.APP_HOST, port=settings.APP_PORT)
+    uvicorn.run(
+        app=app,
+        host=settings.APP_HOST,
+        port=settings.APP_PORT,
+    )

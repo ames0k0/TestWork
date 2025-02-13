@@ -1,4 +1,4 @@
-from pydantic import PostgresDsn
+from pydantic import PostgresDsn, Field
 from pydantic_settings import BaseSettings
 
 
@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     APP_RECORD_URL_TEMPLATE: str = (
         "http://{HOST}:{PORT}/record?id={RECORD_ID}&user={USER_ID}"
     )
-    PG_DSN: PostgresDsn
+    PG_DSN: PostgresDsn = Field(default=...)
 
 
 settings = Settings()

@@ -1,27 +1,26 @@
-from sqlalchemy import Engine
-from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session, sessionmaker
+import sqlalchemy as sa
+import sqlalchemy.orm as sao
 
 from app.config import settings
 from app.sqldb import models
 
 
 class Postgres:
-    engine: Engine
-    session_factory: sessionmaker
+    engine: sa.Engine
+    session_factory: sao.sessionmaker[sao.Session]
 
     @classmethod
     def initialize(cls):
-        cls.engine = create_engine(url=str(settings.PG_DSN))
-        cls.session_factory = sessionmaker(
+        cls.engine = sa.create_engine(url=str(settings.PG_DSN))
+        cls.session_factory = sao.sessionmaker(
             bind=cls.engine,
             expire_on_commit=False,
         )
         models.Base.metadata.create_all(cls.engine)
 
     @classmethod
-    def get_scoped_session(cls) -> scoped_session:
-        return scoped_session(cls.session_factory)
+    def get_scoped_session(cls) -> sao.scoped_session[sao.Session]:
+        return sao.scoped_session(cls.session_factory)
 
     @classmethod
     def terminate(cls):

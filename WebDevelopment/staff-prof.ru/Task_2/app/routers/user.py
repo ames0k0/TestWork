@@ -19,6 +19,6 @@ router = APIRouter(
 async def create_user(
     name: str = Query(..., description="Имя пользователя"),
     session: sao.Session = Depends(dependency=dependencies.get_session),
-) -> dict:
+):
     """Создание пользователя"""
     return crud.User.create(name=name, session=session)

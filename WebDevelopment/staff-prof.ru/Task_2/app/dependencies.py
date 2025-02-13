@@ -1,6 +1,6 @@
 import uuid
 import contextlib
-from typing import AnyStr, Generator
+from typing import Generator
 from urllib.parse import parse_qs
 
 import sqlalchemy.orm as sao
@@ -20,13 +20,13 @@ async def lifespan(app: FastAPI):
 
 
 def get_session() -> Generator[sao.Session, None, None]:
-    Session = Postgres.get_scoped_session()
-    with Session() as session:
+    scoped_session = Postgres.get_scoped_session()
+    with scoped_session() as session:
         yield session
 
 
 def parse_record_id_and_user_id(url: HttpUrl) -> tuple[str, int]:
-    """Parsing the given `url` to downlaod a record
+    """Parsing the given `url` to download a record
 
     Parameters
     ----------
@@ -38,26 +38,23 @@ def parse_record_id_and_user_id(url: HttpUrl) -> tuple[str, int]:
     tuple[int, int]
         record_id, user_id
     """
+    parsed_query: dict[str, list[str]] = parse_qs(url.query)
 
-    def convert_to_type(
-        data: list[AnyStr], type_: int | uuid.UUID
-    ) -> int | uuid.UUID | None:
-        for record_id in data:
-            record_id = record_id.strip()
-            if not record_id:
-                continue
-            with contextlib.suppress(ValueError):
-                return type_(record_id)
+    record_ids: list[str] = parsed_query.get("id", [])
+    user_ids: list[str] = parsed_query.get("user", [])
 
-    parsed_query: dict[AnyStr, list[AnyStr]] = parse_qs(url.query)
-
-    record_ids: list[AnyStr] | None = parsed_query.get("id", [])
-    user_ids: list[AnyStr] | None = parsed_query.get("user", [])
-
-    record_id: uuid.UUID | None = convert_to_type(record_ids, uuid.UUID)
-    user_id: int | None = convert_to_type(user_ids, int)
-
-    if not all((record_id, user_id)):
+    if not all((record_ids, user_ids)):
         raise exceptions.RecordIDAndUserIDAreRequired()
 
-    return str(record_id), user_id
+    record_id: str | None = None
+    with contextlib.suppress(ValueError):
+        record_id = str(uuid.UUID(record_ids[0]))
+
+    user_id: int | None = None
+    with contextlib.suppress(ValueError):
+        user_id = int(user_ids[0])
+
+    if (record_id is None) or (user_id is None):
+        raise exceptions.RecordIDAndUserIDAreRequired()
+
+    return record_id, user_id

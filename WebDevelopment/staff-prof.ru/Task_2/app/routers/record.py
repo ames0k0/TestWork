@@ -33,7 +33,11 @@ async def upload_record(
     session: sao.Session = Depends(dependency=dependencies.get_session),
 ) -> str:
     """Загрузка аудиозаписи"""
-    user = crud.User.get(id=id, token=token, session=session)
+    user = crud.User.get(
+        id=id,
+        token=str(token),
+        session=session,
+    )
     if not user:
         raise exceptions.UserIDOrTokenIsInvalid()
 
@@ -42,7 +46,7 @@ async def upload_record(
 
     record = crud.Record.create(
         user_id=user.id,
-        filename=file.filename,
+        filename=file.filename or "",
         file=(await file.read()),
         session=session,
     )
