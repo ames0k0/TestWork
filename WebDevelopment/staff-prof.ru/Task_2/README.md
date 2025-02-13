@@ -47,6 +47,8 @@ docker compose up -d --build
         -H 'accept: application/json'
       ---</pre>
     </details>
+- <strong>Замечание</strong>
+  - Не преобразует айдиозапись в формат `mp3`, поставил `sleep(2)`
 
 ---
 <details>
@@ -80,15 +82,17 @@ tree -a -I ".venv|__pycache__|__init__.py|pgdata" --dirsfirst
   <li>FastAPI<sup>1</sup></li>
   <li>SQLAlchemy<sup>2</sup></li>
   <li>PostgreSQL<sup>3</sup></li>
-  <li>Docker Compose<sup>4</sup></li>
+  <li>Docker<sup>4</sup></li>
+  <li>Docker Compose<sup>5</sup></li>
 </ul>
 </details>
 
 #### Ссылки по технологиям
 - <sup>1</sup>https://fastapi.tiangolo.com
 - <sup>2</sup>https://www.sqlalchemy.org
-- <sup>3</sup>https://www.postgresql.org/
-- <sup>4</sup>https://docs.docker.com/compose
+- <sup>3</sup>https://www.postgresql.org
+- <sup>4</sup>https://docs.docker.com
+- <sup>5</sup>https://docs.docker.com/compose
 
 ---
 <p align="center"><img src="../data/DiagramTask2.png" /></p>
