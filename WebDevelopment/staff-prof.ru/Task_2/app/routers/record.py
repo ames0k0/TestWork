@@ -1,14 +1,12 @@
-import asyncio
 from typing import Annotated
 
 import sqlalchemy.orm as sao
-from pydantic import HttpUrl, UUID4, PositiveInt, AfterValidator
+from pydantic import UUID4, PositiveInt, AfterValidator
 from fastapi import APIRouter, Query, Form, status, UploadFile, File, Depends
 from fastapi.responses import Response
 
 from app import schemas, dependencies, exceptions
 from app.config import settings, SUPPORTED_RECORD_RESPONSE_FILE_TYPE
-from app.dependencies import parse_record_id_and_user_id
 from app.sqldb import crud
 
 
@@ -41,12 +39,16 @@ async def upload_record(
     if not user:
         raise exceptions.UserIDOrTokenIsInvalid()
 
-    # XXX: Конвертирует...
-    await asyncio.sleep(2)
+    # TODO: Конвертация: `.wav` to `.mp3`
+
+    # TODO: Название файла, если она не задана
+    filename = file.filename
+    if filename is None:
+        filename = f"{user.id}.wav"
 
     record = crud.Record.create(
         user_id=user.id,
-        filename=file.filename or "",
+        filename=filename,
         file=(await file.read()),
         session=session,
     )
@@ -61,14 +63,14 @@ async def upload_record(
 
 @router.get("")
 async def download_record(
-    url: HttpUrl = Query(description="URL для скачивание записи"),
+    id: Annotated[UUID4, Query(description="Идентификатор аудиозаписи")],
+    user: Annotated[int, Query(description="Идентификатор пользователя")],
     session: sao.Session = Depends(dependency=dependencies.get_session),
 ) -> Response:
     """Скачивание аудизаписей по URL"""
-    record_id, user_id = parse_record_id_and_user_id(url=url)
     record = crud.Record.get(
-        record_id=record_id,
-        user_id=user_id,
+        record_id=str(id),
+        user_id=user,
         session=session,
     )
     if not record:
@@ -77,4 +79,7 @@ async def download_record(
     return Response(
         content=record.file,
         media_type=SUPPORTED_RECORD_RESPONSE_FILE_TYPE,
+        headers={
+            "Content-Disposition": f'attachment; filename="{record.filename}"',
+        },
     )
