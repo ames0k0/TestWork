@@ -27,7 +27,7 @@ docker compose up -d --build
     }</pre>
     </details>
   - <details>
-      <summary>POST /record/ - Получения списка заявок</summary>
+      <summary>POST /record/ - Загрузка аудиозаписи</summary>
       <pre>
       curl -X 'POST' \
         'http://localhost:8000/record' \
@@ -40,7 +40,7 @@ docker compose up -d --build
       "http://0.0.0.0:8000/record?id=acd5f8bf-f759-4e99-8441-b4aba0a0a738&user=1"</pre>
     </details>
   - <details>
-      <summary>GET /record/ - Получения списка заявок</summary>
+      <summary>GET /record/ - Скачивание аудизаписей по URL</summary>
       <pre>
       curl -X 'GET' \
         'http://localhost:8000/record?url=http://0.0.0.0:8000/record?id=acd5f8bf-f759-4e99-8441-b4aba0a0a738&user=1' \
