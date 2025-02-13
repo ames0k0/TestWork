@@ -2,6 +2,17 @@
 Пользователям доступно загрузки и отгрузки аудиозаписей
 
 <h4>
+<details>
+  <summary>Скачивание проекта</summary>
+  <pre>
+git clone \
+  --single-branch \
+  --depth=1 https://github.com/ames0k0/TestWork
+cd TestWork/WebDevelopment/staff-prof.ru/Task_2/</pre>
+</details>
+</h4>
+
+<h4>
   <details>
     <summary>Запуску проекта через Docker Compose</summary>
     <pre>docker -v  # Docker version 27.5.1, build 9f9e405</pre>
@@ -11,8 +22,8 @@
 ```bash
 docker compose up -d --build
 ```
-- <strong>Сервис: http://0.0.0.0:8000</strong>
-- <strong>Документация: http://0.0.0.0:8000/docs</strong>
+- <strong>Сервис: http://localhost:8000</strong>
+- <strong>Документация: http://localhost:8000/docs</strong>
   - <details>
     <summary>POST /user/ - Создание пользователя</summary>
     <pre>
