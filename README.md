@@ -5,6 +5,13 @@
 ## Web Development
 
 ### Test Tasks
+- [x] [staff-prof.ru](./WebDevelopment/staff-prof.ru)
+  - [x] [Task_2](./WebDevelopment/staff-prof.ru/Task_2) - **Музыкальный веб сервис**
+    - FastAPI<sup>1</sup>,
+      SQLAlchemy<sup>3</sup>,
+      PostgreSQL<sup>4</sup>
+    - Docker<sup>7</sup>,
+      Docker Compose<sup>8</sup>
 - [x] [bewise.ai](./WebDevelopment/bewise.ai) - **Сервис для обработки заявок пользователей**
   - FastAPI<sup>1</sup>,
     FastAPI Pagination<sup>2</sup>,
