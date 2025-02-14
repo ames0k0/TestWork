@@ -29,55 +29,64 @@ docker compose up -d --build
 
 ## REST методы
 ### Пользователь
-#### Создание пользователя
-```
-POST /user/
-```
+<details>
+<summary><strong>POST /user/</strong> - Создание пользователя</summary>
+
 | Параметры запроса | Тип    | Описание         |
 | ----------------- | ------ | ---------------- |
 | name              | Строка | Имя пользователя |
+
 ```json
-// Ответ сервера
 {
   "id": 1,
   "token": "d5fde0d9-9402-4112-bd33-b6ae14d8c87f"
 }
 ```
-### Аудизапись
-#### Загрузка аудиозаписи
-```
-POST /record/
-```
+</details>
+
+### Аудиозапись
+
+> [!NOTE]
+> - Не преобразует айдиозапись в формат `mp3`
+
+<details>
+<summary><strong>POST /record/</strong> - Загрузка аудиозаписи</summary>
+
 | Параметры формы | Тип   | Описание                     |
 | --------------- | ----- | ---------------------------- |
 | id              | Число | Идентификатор пользователя   |
 | token           | UUID  | Токен доступа / пользователя |
 | file            | Файл  | Аудиозапись в формате `wav`  |
-```json
-// Ответ сервера
+
+```
 "http://0.0.0.0:8000/record?id=acd5f8bf-f759-4e99-8441-b4aba0a0a738&user=1"
 ```
-#### Скачивания аудизаписа
-```
-GET /record/
-```
+</details>
+
+<details>
+<summary><strong>GET /record/</strong> - Скачивание аудиозаписи</summary>
+
 | Параметры запроса | Тип    | Описание                   |
 | ----------------- | ------ | -------------------------- |
 | id                | UUID   | Идентификатор аудиозаписи  |
 | user              | Число  | Идентификатор пользователя |
-```json
-// Ответ сервера
-// blob:http://localhost:8000/bd03fa9f-9584-4ab6-b440-280c3b804bb2
-@file
+
 ```
-> [!NOTE]
-> - Не преобразует айдиозапись в формат `mp3`
+// blob:http://localhost:8000/bd03fa9f-9584-4ab6-b440-280c3b804bb2
+// @file
+```
+
+</details>
 
 ---
+
 <details>
 <summary>Файловая структура проекта</summary>
-<pre>
+
+```bash
 tree -a -I ".venv|__pycache__|__init__.py|pgdata" --dirsfirst
+```
+<pre>
 .
 ├── app
 │   ├── routers
@@ -101,21 +110,16 @@ tree -a -I ".venv|__pycache__|__init__.py|pgdata" --dirsfirst
 
 <details>
 <summary>Использованные технологии</summary>
-<ul>
-  <li>FastAPI<sup>1</sup></li>
-  <li>SQLAlchemy<sup>2</sup></li>
-  <li>PostgreSQL<sup>3</sup></li>
-  <li>Docker<sup>4</sup></li>
-  <li>Docker Compose<sup>5</sup></li>
-</ul>
-</details>
 
-#### Ссылки по технологиям
-- <sup>1</sup>https://fastapi.tiangolo.com
-- <sup>2</sup>https://www.sqlalchemy.org
-- <sup>3</sup>https://www.postgresql.org
-- <sup>4</sup>https://docs.docker.com
-- <sup>5</sup>https://docs.docker.com/compose
+| Название       | Ссылка                          |
+| -------------- | ------------------------------- |
+| FastAPI        | https://fastapi.tiangolo.com    |
+| SQLAlchemy     | https://www.sqlalchemy.org      |
+| PostgreSQL     | https://www.postgresql.org      |
+| Docker         | https://docs.docker.com         |
+| Docker Compose | https://docs.docker.com/compose |
+
+</details>
 
 ---
 <p align="center"><img src="../data/DiagramTask2.png" /></p>
