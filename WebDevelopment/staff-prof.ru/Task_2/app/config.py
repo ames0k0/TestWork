@@ -10,7 +10,9 @@ SUPPORTED_RECORD_UPLOAD_FILE_TYPES: set[str] = {
     "audio/x-pn-wav",
     "audio/x-wav",
 }
-SUPPORTED_RECORD_RESPONSE_FILE_TYPE: str = "audio/x-wav"
+# XXX: https://mimetype.io/audio/mp3
+SUPPORTED_RECORD_RESPONSE_FILE_TYPE: str = "audio/mpeg"
+SUPPORTED_RECORD_EXPORT_FILE_FORMAT = "mp3"
 
 
 class Settings(BaseSettings):

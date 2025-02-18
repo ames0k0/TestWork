@@ -47,13 +47,13 @@ docker compose up -d --build
 #### Аудиозапись
 - <details>
   <summary><strong>POST /record/</strong> - Загрузка аудиозаписи</summary>
-  
+
   | Параметры формы | Тип   | Описание                     |
   | --------------- | ----- | ---------------------------- |
   | id              | Число | Идентификатор пользователя   |
   | token           | UUID  | Токен доступа / пользователя |
   | file            | Файл  | Аудиозапись в формате `wav`  |
-  
+
   ```
   "http://0.0.0.0:8000/record?id=acd5f8bf-f759-4e99-8441-b4aba0a0a738&user=1"
   ```
@@ -112,6 +112,7 @@ tree -a -I ".venv|__pycache__|__init__.py|pgdata" --dirsfirst
 | Название       | Ссылка                          |
 | -------------- | ------------------------------- |
 | FastAPI        | https://fastapi.tiangolo.com    |
+| Pydub          | http://pydub.com                |
 | SQLAlchemy     | https://www.sqlalchemy.org      |
 | PostgreSQL     | https://www.postgresql.org      |
 | Docker         | https://docs.docker.com         |

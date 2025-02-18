@@ -1,3 +1,5 @@
+import os
+import asyncio
 from typing import Annotated
 
 import sqlalchemy.orm as sao
@@ -5,8 +7,8 @@ from pydantic import UUID4, PositiveInt, AfterValidator
 from fastapi import APIRouter, Query, Form, status, UploadFile, File, Depends
 from fastapi.responses import Response
 
-from app import schemas, dependencies, exceptions
-from app.config import settings, SUPPORTED_RECORD_RESPONSE_FILE_TYPE
+from app import schemas, dependencies, exceptions, config
+from app.core import utils
 from app.sqldb import crud
 
 
@@ -39,23 +41,31 @@ async def upload_record(
     if not user:
         raise exceptions.UserIDOrTokenIsInvalid()
 
-    # TODO: Конвертация: `.wav` to `.mp3`
+    loop = asyncio.get_running_loop()
+    converted_file = await loop.run_in_executor(
+        None,
+        utils.convert_wav_to_mp3,
+        await file.read(),
+    )
 
-    # TODO: Название файла, если она не задана
     filename = file.filename
     if filename is None:
-        filename = f"{user.id}.wav"
+        # NOTE: Название файла, если она не задана
+        filename = f"{user.id}.{config.SUPPORTED_RECORD_EXPORT_FILE_FORMAT}"
+    else:
+        filename, _ = os.path.splitext(file.filename)
+        filename = f"{filename}.{config.SUPPORTED_RECORD_EXPORT_FILE_FORMAT}"
 
     record = crud.Record.create(
         user_id=user.id,
         filename=filename,
-        file=(await file.read()),
+        file=converted_file,
         session=session,
     )
 
-    return settings.APP_RECORD_URL_TEMPLATE.format(
-        HOST=settings.APP_HOST,
-        PORT=settings.APP_PORT,
+    return config.settings.APP_RECORD_URL_TEMPLATE.format(
+        HOST=config.settings.APP_HOST,
+        PORT=config.settings.APP_PORT,
         RECORD_ID=record.id,
         USER_ID=user.id,
     )
@@ -78,7 +88,7 @@ async def download_record(
 
     return Response(
         content=record.file,
-        media_type=SUPPORTED_RECORD_RESPONSE_FILE_TYPE,
+        media_type=config.SUPPORTED_RECORD_RESPONSE_FILE_TYPE,
         headers={
             "Content-Disposition": f'attachment; filename="{record.filename}"',
         },

@@ -4,3 +4,4 @@ python-multipart==0.0.20
 SQLAlchemy==2.0.38
 pydantic-settings==2.7.1
 psycopg2-binary==2.9.10
+pydub==0.25.1
