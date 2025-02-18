@@ -3,7 +3,7 @@ import asyncio
 from typing import Annotated
 
 import sqlalchemy.orm as sao
-from pydantic import UUID4, PositiveInt, AfterValidator
+from pydantic import UUID4, PositiveInt, AfterValidator, HttpUrl
 from fastapi import APIRouter, Query, Form, status, UploadFile, File, Depends
 from fastapi.responses import Response
 
@@ -31,7 +31,7 @@ async def upload_record(
         AfterValidator(schemas.supported_record_file_ext),
     ],
     session: sao.Session = Depends(dependency=dependencies.get_session),
-) -> str:
+) -> HttpUrl:
     """Загрузка аудиозаписи"""
     user = crud.User.get(
         id=id,
