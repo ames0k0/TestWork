@@ -73,9 +73,6 @@ docker compose up -d --build
   ```
   </details>
 
-> [!IMPORTANT]
-> - Не преобразует айдиозапись в формат `mp3`
-
 ---
 
 <details>

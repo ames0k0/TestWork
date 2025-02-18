@@ -1,7 +1,6 @@
 import io
 
 import pydub
-from fastapi import UploadFile
 
 from app import config
 

@@ -8,6 +8,7 @@
 - [x] [staff-prof.ru](./WebDevelopment/staff-prof.ru)
   - [x] [Task_2](./WebDevelopment/staff-prof.ru/Task_2) - **Музыкальный веб сервис**
     - FastAPI<sup>1</sup>,
+      Pydub<sup>28</sup>,
       SQLAlchemy<sup>3</sup>,
       PostgreSQL<sup>4</sup>
     - Docker<sup>7</sup>,
@@ -154,3 +155,4 @@
 - <sup>25</sup>https://kafka.apache.org
 - <sup>26</sup>https://redis.io
 - <sup>27</sup>https://docs.celeryq.dev/en/stable
+- <sup>28</sup>http://pydub.com
