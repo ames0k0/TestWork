@@ -5,6 +5,14 @@
 ## Web Development
 
 ### Test Tasks
+- [x] [UserManagement](https://github.com/ames0k0/TT--Litestar--User-Management) - **REST API для управления пользователями**
+  - Litestar<sup>29</sup>,
+    Litestar Granian<sup>30</sup>,
+    Advanced Alchemy<sup>31</sup>,
+    msgspec<sup>32</sup>,
+    PostgreSQL<sup>4</sup>
+  - Docker<sup>7</sup>,
+    Docker Compose<sup>8</sup>
 - [x] [staff-prof.ru](./WebDevelopment/staff-prof.ru)
   - [x] [Task_2](./WebDevelopment/staff-prof.ru/Task_2) - **Музыкальный веб сервис**
     - FastAPI<sup>1</sup>,
@@ -156,3 +164,7 @@
 - <sup>26</sup>https://redis.io
 - <sup>27</sup>https://docs.celeryq.dev/en/stable
 - <sup>28</sup>http://pydub.com
+- <sup>29</sup>https://litestar.dev
+- <sup>30</sup>https://github.com/cofin/litestar-granian
+- <sup>31</sup>https://docs.advanced-alchemy.litestar.dev/latest
+- <sup>32</sup>https://jcristharif.com/msgspec
