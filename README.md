@@ -5,6 +5,11 @@
 ## Web Development
 
 ### Test Tasks
+- [x] [NSFW-Moderation](https://github.com/ames0k0/TT--FastAPI--NSFW-Moderation) - **REST API для модерации изображений**
+  - FastAPI<sup>1</sup>,
+    Pydantic<sup>5</sup>,
+    HTTPX<sup>36</sup>
+  - Uvicorn<sup>6</sup>
 - [x] [FileMetadataParser](https://github.com/ames0k0/TT--FastAPI--File-Metadata-Parser) - **REST API для парсинга метаданных файла**
   - FastAPI<sup>1</sup>,
     SQLAlchemy<sup>3</sup>,
@@ -184,3 +189,4 @@
 - <sup>33</sup>https://github.com/pytest-dev/pytest-cov
 - <sup>34</sup>https://requests.readthedocs.io/en/latest
 - <sup>35</sup>https://www.crummy.com/software/BeautifulSoup/bs4/doc
+- <sup>36</sup>https://www.python-httpx.org
