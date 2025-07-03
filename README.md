@@ -5,6 +5,16 @@
 ## Web Development
 
 ### Test Tasks
+- [x] [FileMetadataParser](https://github.com/ames0k0/TT--FastAPI--File-Metadata-Parser) - **REST API для парсинга метаданных файла**
+  - FastAPI<sup>1</sup>,
+    SQLAlchemy<sup>3</sup>,
+    PostgreSQL<sup>4</sup>
+    Pydantic<sup>5</sup>,
+    Requests<sup>34</sup>,
+    bs4<sup>35</sup>,
+  - Uvicorn<sup>6</sup>,
+    Docker<sup>7</sup>,
+    Docker Compose<sup>8</sup>
 - [x] [UserManagement](https://github.com/ames0k0/TT--Litestar--User-Management) - **REST API для управления пользователями**
   - Litestar<sup>29</sup>,
     Litestar Granian<sup>30</sup>,
@@ -172,3 +182,5 @@
 - <sup>31</sup>https://docs.advanced-alchemy.litestar.dev/latest
 - <sup>32</sup>https://jcristharif.com/msgspec
 - <sup>33</sup>https://github.com/pytest-dev/pytest-cov
+- <sup>34</sup>https://requests.readthedocs.io/en/latest
+- <sup>35</sup>https://www.crummy.com/software/BeautifulSoup/bs4/doc
