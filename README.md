@@ -12,9 +12,7 @@
   - Uvicorn<sup>6</sup>
 - [x] [FileMetadataParser](https://github.com/ames0k0/TT--FastAPI--File-Metadata-Parser) - **REST API для парсинга метаданных файла**
   - FastAPI<sup>1</sup>,
-    SQLAlchemy<sup>3</sup>,
-    PostgreSQL<sup>4</sup>
-    Pydantic<sup>5</sup>,
+    PostgreSQL<sup>4</sup>,
     Requests<sup>34</sup>,
     bs4<sup>35</sup>,
   - Uvicorn<sup>6</sup>,
