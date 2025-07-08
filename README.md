@@ -5,6 +5,8 @@
 ## Web Development
 
 ### Test Tasks
+- [x] [User Feedback Collector](https://github.com/ames0k0/TT--Flask--User-Feedback-Collector) - **Мини-сервис для сохранение отзывов и оценка настроение**
+  - Flask<sup>17</sup>
 - [x] [NSFW-Moderation](https://github.com/ames0k0/TT--FastAPI--NSFW-Moderation) - **REST API для модерации изображений**
   - FastAPI<sup>1</sup>,
     Pydantic<sup>5</sup>,
