@@ -5,9 +5,17 @@
 ## Web Development
 
 ### Test Tasks
+- [ ] [Restaurant Table Reservations](https://github.com/ames0k0/TT--FastAPI--Restaurant-Table-Reservations) - **REST API для бронирования столиков**
+  - FastAPI<sup>1</sup>,
+    SQLModel<sup>37</sup>,
+    Pydantic<sup>5</sup>,
+    PostgreSQL<sup>4</sup>
+  - Uvicorn<sup>6</sup>,
+    Docker<sup>7</sup>,
+    Docker Compose<sup>8</sup>
 - [x] [User Feedback Collector](https://github.com/ames0k0/TT--Flask--User-Feedback-Collector) - **Мини-сервис для сохранение отзывов и оценка настроение**
   - Flask<sup>17</sup>
-- [x] [NSFW-Moderation](https://github.com/ames0k0/TT--FastAPI--NSFW-Moderation) - **REST API для модерации изображений**
+- [x] [NSFW Moderation](https://github.com/ames0k0/TT--FastAPI--NSFW-Moderation) - **REST API для модерации изображений**
   - FastAPI<sup>1</sup>,
     Pydantic<sup>5</sup>,
     HTTPX<sup>36</sup>
@@ -190,3 +198,4 @@
 - <sup>34</sup>https://requests.readthedocs.io/en/latest
 - <sup>35</sup>https://www.crummy.com/software/BeautifulSoup/bs4/doc
 - <sup>36</sup>https://www.python-httpx.org
+- <sup>37</sup>https://sqlmodel.tiangolo.com
