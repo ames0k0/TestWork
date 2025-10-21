@@ -9,7 +9,7 @@
 | 005 |                         [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)                         |    Easy    |        [Python, C++](./Top100LikedQuestions/MaximumSubarray.md)        |
 | 006 | [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/) |    Easy    | [Python](./Top100LikedQuestions/FindAllNumbersDisappearedInAnArray.md) |
 | 007 |                            [Single Number](https://leetcode.com/problems/single-number/)                            |    Easy    |            [Python](./Top100LikedQuestions/SingleNumber.md)            |
-| 008 |                              [Move Zeroes](https://leetcode.com/problems/move-zeroes/)                              |    Easy    |             [Python](./Top100LikedQuestions/MoveZeroes.md)             |
+| 008 |                              [Move Zeroes](https://leetcode.com/problems/move-zeroes/)                              |    Easy    |             [Python, Go](./Top100LikedQuestions/MoveZeroes.md)         |
 | 009 |                         [Majority Element](https://leetcode.com/problems/majority-element/)                         |    Easy    |          [Python](./Top100LikedQuestions/MajorityElement.md)           |
 | 010 |                                [Min Stack](https://leetcode.com/problems/min-stack/)                                |    Easy    |              [Python](./Top100LikedQuestions/MinStack.md)              |
 | 011 |                        [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)                        |    Easy    |          [Python](./Top100LikedQuestions/LinkedListCycle.md)           |

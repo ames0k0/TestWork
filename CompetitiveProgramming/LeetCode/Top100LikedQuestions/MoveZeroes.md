@@ -8,3 +8,22 @@ class Solution:
         nums.append(nums.pop(-nidx))
     return nums
 ```
+
+### Golang
+```go
+func moveZeroes(nums []int) {
+	var zidx int
+	var zero_idx_is_set bool
+	for nidx, num := range nums {
+		if num == 0 && !zero_idx_is_set {
+			zidx = nidx
+			zero_idx_is_set = true
+			continue
+		}
+		if num != 0 && zero_idx_is_set {
+			nums[zidx], nums[nidx] = nums[nidx], nums[zidx]
+			zidx += 1
+		}
+	}
+}
+```
