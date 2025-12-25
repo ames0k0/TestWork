@@ -115,7 +115,11 @@
 ## Projects and Scripts
 
 ### Test Tasks
-- [x] [WorkMate](https://github.com/ames0k0/TT--Python--Calculate-employee-salaries) - **Сприпт для подсчёта зарплаты сотрудников**
+- [x] [NDA](https://github.com/ames0k0/TT--Python--GetCourse-User-Deals) - **CLI для получения заказов пользователя**
+  - Requests<sup>34</sup>,
+    Pydantic<sup>5</sup>,
+    PrettyTable<sup>38</sup>
+- [x] [WorkMate](https://github.com/ames0k0/TT--Python--Calculate-employee-salaries) - **Скрипт для подсчёта зарплаты сотрудников**
   - pytest<sup>24</sup>,
     pytest-cov<sup>33</sup>
 - [x] [CountDotsInPic](./ProjectsAndScripts/CountDotsInPic) - **Алгоритм для подсчёта точек в картинке**
@@ -199,3 +203,4 @@
 - <sup>35</sup>https://www.crummy.com/software/BeautifulSoup/bs4/doc
 - <sup>36</sup>https://www.python-httpx.org
 - <sup>37</sup>https://sqlmodel.tiangolo.com
+- <sup>38</sup>https://pypi.org/project/prettytable
