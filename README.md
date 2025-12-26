@@ -5,11 +5,13 @@
 ## Web Development
 
 ### Test Tasks
-- [ ] [Restaurant Table Reservations](https://github.com/ames0k0/TT--FastAPI--Restaurant-Table-Reservations) - **REST API для бронирования столиков**
+- [x] [Restaurant Table Reservations](https://github.com/ames0k0/TT--FastAPI--Restaurant-Table-Reservations) - **REST API для бронирования столиков**
   - FastAPI<sup>1</sup>,
     SQLModel<sup>37</sup>,
     Pydantic<sup>5</sup>,
-    PostgreSQL<sup>4</sup>
+    PostgreSQL<sup>4</sup>,
+    HTTPX<sup>36</sup>,
+    pytest<sup>24</sup>
   - Uvicorn<sup>6</sup>,
     Docker<sup>7</sup>,
     Docker Compose<sup>8</sup>
@@ -204,3 +206,4 @@
 - <sup>36</sup>https://www.python-httpx.org
 - <sup>37</sup>https://sqlmodel.tiangolo.com
 - <sup>38</sup>https://pypi.org/project/prettytable
+
