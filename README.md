@@ -124,6 +124,7 @@
 - [x] [WorkMate](https://github.com/ames0k0/TT--Python--Calculate-employee-salaries) - **Скрипт для подсчёта зарплаты сотрудников**
   - pytest<sup>24</sup>,
     pytest-cov<sup>33</sup>
+- [x] [cbr-ru](https://github.com/ames0k0/cbr-ru) - **Загрузка ежедневной валюты с сайта cbr.ru**
 - [x] [CountDotsInPic](./ProjectsAndScripts/CountDotsInPic) - **Алгоритм для подсчёта точек в картинке**
 - [x] [WordCounter - Python Implementation](./ProjectsAndScripts/WordCounter) - **Имплементации программы `wc` на Python**
 - [x] [STT-Engine Result Fixer](./ProjectsAndScripts/ImotIO) - **STT-Engine result fixer**
