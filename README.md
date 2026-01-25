@@ -5,6 +5,12 @@
 ## Web Development
 
 ### Test Tasks
+- [ ] [User Data Aggregation](https://github.com/ames0k0/TT--Golang--User-Data-Aggregation) - **REST API для агрегации данных об онлайн-подписках пользователей**
+  - Golang<sup>39</sup>,
+    goose<sup>40</sup>,
+    pgx<sup>41</sup>
+  - Docker<sup>7</sup>,
+    Docker Compose<sup>8</sup>
 - [x] [Restaurant Table Reservations](https://github.com/ames0k0/TT--FastAPI--Restaurant-Table-Reservations) - **REST API для бронирования столиков**
   - FastAPI<sup>1</sup>,
     SQLModel<sup>37</sup>,
@@ -207,4 +213,7 @@
 - <sup>36</sup>https://www.python-httpx.org
 - <sup>37</sup>https://sqlmodel.tiangolo.com
 - <sup>38</sup>https://pypi.org/project/prettytable
+- <sup>39</sup>https://go.dev
+- <sup>40</sup>https://pressly.github.io/goose
+- <sup>41</sup>https://pkg.go.dev/github.com/jackc/pgx/v5
 
